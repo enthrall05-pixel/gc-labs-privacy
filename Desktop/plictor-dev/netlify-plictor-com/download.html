@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!-- ╔══════════════════════╗
+     ║   Created by G/C     ║
+     ╚══════════════════════╝ -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Download Plictor Work</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --purple: #6c63ff; --purple-dark: #4a42cc; --purple-pale: #ede9ff;
+      --text: #1a1635; --text-muted: #6b65a0; --border: rgba(108,99,255,0.18);
+      --chrome: linear-gradient(135deg, #7b73ff 0%, #4a42cc 100%);
+    }
+    body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #f0eeff 0%, #e8e4ff 50%, #ede9ff 100%); min-height: 100vh; color: var(--text); }
+
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 48px; background: white; border-bottom: 1px solid var(--border); }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo img { width: 28px; height: 28px; object-fit: contain; }
+    .nav-name { font-weight: 700; font-size: 17px; color: var(--purple-dark); }
+    .nav-back { color: var(--text-muted); text-decoration: none; font-size: 13px; }
+    .nav-back:hover { color: var(--purple); }
+
+    .page { max-width: 680px; margin: 0 auto; padding: 80px 24px; text-align: center; }
+
+    .badge { display: inline-flex; align-items: center; gap: 6px; background: var(--purple-pale); color: var(--purple-dark); border: 1px solid var(--border); border-radius: 20px; padding: 4px 14px; font-size: 12px; font-weight: 600; margin-bottom: 24px; }
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--purple); box-shadow: 0 0 6px var(--purple); }
+
+    h1 { font-size: 42px; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 16px; }
+    h1 span { background: var(--chrome); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .sub { font-size: 17px; color: var(--text-muted); line-height: 1.6; margin-bottom: 48px; }
+
+    .features { display: flex; justify-content: center; gap: 28px; margin-bottom: 52px; flex-wrap: wrap; }
+    .feat { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-muted); font-weight: 500; }
+
+    .download-card { background: white; border-radius: 20px; border: 1.5px solid var(--border); padding: 40px; box-shadow: 0 8px 32px rgba(108,99,255,0.12); margin-bottom: 32px; }
+
+    /* Buy state */
+    .buy-section { display: block; }
+    .price-line { font-size: 32px; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 6px; }
+    .price-line span { font-size: 15px; font-weight: 500; color: var(--text-muted); }
+    .price-sub { font-size: 13px; color: var(--text-muted); margin-bottom: 28px; }
+    .buy-btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px 24px; border-radius: 12px; border: none; cursor: pointer; background: var(--chrome); color: white; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 16px rgba(74,66,204,0.35); transition: all 0.15s; margin-bottom: 14px; }
+    .buy-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(74,66,204,0.4); }
+    .buy-meta { font-size: 12px; color: var(--text-muted); }
+    .buy-includes { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); line-height: 2; text-align: left; }
+
+    /* Download state (after payment) */
+    .download-section { display: none; }
+    .success-badge { display: inline-flex; align-items: center; gap: 8px; background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; border-radius: 20px; padding: 6px 16px; font-size: 13px; font-weight: 600; margin-bottom: 20px; }
+    .os-tabs { display: flex; background: var(--purple-pale); border-radius: 10px; padding: 4px; margin-bottom: 24px; gap: 4px; }
+    .os-tab { flex: 1; padding: 10px; border-radius: 8px; border: none; background: none; font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: all 0.15s; }
+    .os-tab.active { background: white; color: var(--purple-dark); box-shadow: 0 2px 8px rgba(108,99,255,0.15); }
+    .download-btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px 24px; border-radius: 12px; border: none; cursor: pointer; background: var(--chrome); color: white; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700; text-decoration: none; box-shadow: 0 4px 16px rgba(74,66,204,0.35); transition: all 0.15s; margin-bottom: 14px; }
+    .download-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(74,66,204,0.4); }
+    .download-meta { font-size: 12px; color: var(--text-muted); }
+    .os-info { display: none; }
+    .os-info.active { display: block; }
+    .redownload-note { margin-top: 16px; font-size: 12px; color: var(--text-muted); }
+
+    /* Verifying state */
+    .verifying-section { display: none; text-align: center; padding: 20px 0; }
+    .spinner { width: 32px; height: 32px; border: 3px solid var(--purple-pale); border-top-color: var(--purple); border-radius: 50%; animation: spin 0.7s linear infinite; margin: 0 auto 16px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Error state */
+    .error-section { display: none; background: #fff5f5; border: 1px solid #fecaca; border-radius: 12px; padding: 24px; color: #991b1b; font-size: 14px; margin-bottom: 16px; }
+
+    .trust { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-muted); font-weight: 500; }
+    .trust-check { color: var(--purple); font-weight: 700; }
+
+    footer { text-align: center; padding: 40px; font-size: 12px; color: var(--text-muted); }
+    footer a { color: var(--purple); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">
+    <img src="/logo-32.png" alt="Plictor" />
+    <span class="nav-name">Plictor</span>
+  </a>
+  <a href="/" class="nav-back">← Back to home</a>
+</nav>
+
+<div class="page">
+  <div class="badge"><span class="badge-dot"></span> v1.1.1 — Now Available</div>
+  <h1>Download <span>Plictor Work</span></h1>
+  <p class="sub">Your local AI business agent. Bring your own API key.<br>Your data never leaves your machine.</p>
+
+  <div class="features">
+    <div class="feat">🤖 11 AI providers</div>
+    <div class="feat">🧠 Persistent memory</div>
+    <div class="feat">🔍 Web search</div>
+    <div class="feat">⚡ Custom skills</div>
+    <div class="feat">🔒 Fully local</div>
+  </div>
+
+  <div class="download-card">
+
+    <!-- Verifying -->
+    <div class="verifying-section" id="verifying">
+      <div class="spinner"></div>
+      <div style="font-size:14px;color:var(--text-muted);">Verifying your purchase…</div>
+    </div>
+
+    <!-- Error -->
+    <div class="error-section" id="error-section">
+      <strong>Could not verify purchase.</strong><br>
+      <span id="error-msg">If you just paid, please wait a moment and refresh. Contact hello@plictor.com if this persists.</span>
+    </div>
+
+    <!-- Buy (default) -->
+    <div class="buy-section" id="buy-section">
+      <div class="price-line">$10 <span>one-time</span></div>
+      <div class="price-sub">Windows · Mac · Linux · All platforms included</div>
+      <a class="buy-btn" href="https://buy.stripe.com/eVq7sE2z02SR7tZgkucjS0s">Buy Plictor Work — $10</a>
+      <div class="buy-meta">Secure payment via Stripe. Download starts immediately after.</div>
+      <div class="buy-includes">
+        ✓ All platforms (Windows / Mac / Linux)<br>
+        ✓ Free updates forever<br>
+        ✓ No subscription, no account required<br>
+        ✓ Try free in browser first at <a href="/work" style="color:var(--purple);">plictor.com/work</a>
+      </div>
+    </div>
+
+    <!-- Download (after payment verified) -->
+    <div class="download-section" id="download-section">
+      <div class="success-badge">✓ Purchase verified — ready to download</div>
+      <a class="download-btn" id="os-download-btn" href="#">⬇ Download for <span id="os-label">your OS</span></a>
+      <div class="download-meta" id="os-meta"></div>
+      <div class="redownload-note">Bookmark this page to re-download anytime using the same link.</div>
+    </div>
+
+  </div>
+
+  <div class="trust">
+    <div class="trust-item"><span class="trust-check">✓</span> Your API key, your calls</div>
+    <div class="trust-item"><span class="trust-check">✓</span> Zero data on our servers</div>
+    <div class="trust-item"><span class="trust-check">✓</span> Works offline after setup</div>
+    <div class="trust-item"><span class="trust-check">✓</span> Try free in browser first</div>
+  </div>
+</div>
+
+<footer>
+  © 2026 Plictor · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · hello@plictor.com
+</footer>
+
+<script>
+  const DOWNLOAD_META = {
+    windows: { label: 'Windows', meta: 'Windows 10/11 · 64-bit · ~95MB installer' },
+    mac:     { label: 'Mac',     meta: 'macOS 11+ · Apple Silicon + Intel · ~110MB' },
+    linux:   { label: 'Linux',   meta: 'AppImage · No install needed · ~102MB' },
+  };
+
+  function detectOS() {
+    const ua = navigator.userAgent;
+    if (ua.includes('Mac')) return 'mac';
+    if (ua.includes('Linux')) return 'linux';
+    return 'windows';
+  }
+
+  function setDownloadButton(os) {
+    const urls = {
+      windows: 'https://github.com/enthrall05-pixel/plictor-work-desktop/releases/download/v1.1.1/Plictor.Work.Setup.1.1.0.exe',
+      mac:     'https://github.com/enthrall05-pixel/plictor-work-desktop/releases/download/v1.1.1/Plictor.Work-1.1.0-arm64.dmg',
+      linux:   'https://github.com/enthrall05-pixel/plictor-work-desktop/releases/download/v1.1.1/Plictor.Work-1.1.0.AppImage',
+    };
+    document.getElementById('os-download-btn').href = urls[os];
+    document.getElementById('os-label').textContent = DOWNLOAD_META[os].label;
+    document.getElementById('os-meta').textContent = DOWNLOAD_META[os].meta;
+  }
+
+  function showBuy() {
+    document.getElementById('verifying').style.display = 'none';
+    document.getElementById('buy-section').style.display = 'block';
+  }
+
+  function showDownload() {
+    document.getElementById('verifying').style.display = 'none';
+    document.getElementById('buy-section').style.display = 'none';
+    document.getElementById('download-section').style.display = 'block';
+    setDownloadButton(detectOS());
+  }
+
+  function showError(msg) {
+    document.getElementById('verifying').style.display = 'none';
+    document.getElementById('error-section').style.display = 'block';
+    if (msg) document.getElementById('error-msg').textContent = msg;
+    document.getElementById('buy-section').style.display = 'block';
+  }
+
+  async function verifySession(sessionId) {
+    document.getElementById('verifying').style.display = 'block';
+    document.getElementById('buy-section').style.display = 'none';
+
+    try {
+      const res = await fetch(`/.netlify/functions/verify-purchase?session_id=${encodeURIComponent(sessionId)}`);
+      const data = await res.json();
+
+      if (data.valid) {
+        showDownload();
+      } else {
+        showError(data.error || 'Payment not confirmed. Contact hello@plictor.com if you were charged.');
+      }
+    } catch (err) {
+      showError('Verification failed. Please refresh or contact hello@plictor.com.');
+    }
+  }
+
+  // On load — check for session_id in URL
+  const params = new URLSearchParams(window.location.search);
+  const sessionId = params.get('session_id');
+
+  if (sessionId && sessionId.startsWith('cs_')) {
+    verifySession(sessionId);
+  } else {
+    showBuy();
+  }
+</script>
+</body>
+</html>

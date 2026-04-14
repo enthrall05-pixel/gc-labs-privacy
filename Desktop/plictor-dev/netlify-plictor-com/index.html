@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<!--
+╔══════════════════════╗
+║                      ║
+║   Created by G/C     ║
+║                      ║
+╚══════════════════════╝
+plictor.com — Ecosystem landing page
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Plictor — The AI that actually knows you</title>
+<meta name="description" content="Plictor remembers how you work, how you write, and what you care about. The longer you use it, the smarter it gets. No setup. No forgetting." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',system-ui,sans-serif;background:#f9f8ff;color:#1a1833;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 40px;height:62px;display:flex;align-items:center;justify-content:space-between;background:rgba(249,248,255,0.9);backdrop-filter:blur(20px);border-bottom:1px solid rgba(108,99,255,0.1);}
+.nav-left{display:flex;align-items:center;gap:10px;}
+.nav-logo{display:flex;align-items:center;gap:9px;}
+.nav-logo img{width:26px;height:26px;}
+.nav-name{font-weight:800;font-size:15px;letter-spacing:-0.4px;color:#1a1833;}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none;margin-left:36px;}
+.nav-links a{color:#7b7699;font-size:13px;font-weight:500;transition:color .15s;}
+.nav-links a:hover{color:#1a1833;}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;border:none;cursor:pointer;font-family:inherit;transition:all .18s;}
+.btn-ghost{background:transparent;color:#7b7699;border:1px solid rgba(108,99,255,0.2);}
+.btn-ghost:hover{color:#1a1833;border-color:rgba(108,99,255,0.4);}
+.btn-primary{background:#6c63ff;color:#fff;}
+.btn-primary:hover{background:#5a52e0;transform:translateY(-1px);box-shadow:0 6px 20px rgba(108,99,255,0.3);}
+.btn-lg{padding:13px 30px;font-size:15px;border-radius:10px;}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 60px;position:relative;overflow:hidden;}
+.hero-glow{position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:900px;height:700px;background:radial-gradient(ellipse at center,rgba(108,99,255,0.13) 0%,transparent 68%);pointer-events:none;}
+.hero-glow-2{position:absolute;bottom:-200px;left:30%;width:600px;height:500px;background:radial-gradient(ellipse at center,rgba(167,139,250,0.07) 0%,transparent 70%);pointer-events:none;}
+
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:100px;background:rgba(108,99,255,0.08);border:1px solid rgba(108,99,255,0.18);color:#6c63ff;font-size:11.5px;font-weight:600;letter-spacing:0.3px;margin-bottom:28px;}
+.eyebrow-dot{width:5px;height:5px;border-radius:50%;background:#6c63ff;animation:blink 2.2s ease infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.25}}
+
+.hero h1{font-size:clamp(38px,6.5vw,72px);font-weight:900;line-height:1.05;letter-spacing:-2px;color:#1a1833;margin-bottom:22px;max-width:780px;}
+.hero h1 em{font-style:normal;color:#6c63ff;}
+.hero-sub{font-size:clamp(15px,2vw,18px);color:#7b7699;line-height:1.65;max-width:480px;margin-bottom:40px;font-weight:400;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:56px;}
+
+/* ── TRUST STRIP ── */
+.trust-strip{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;margin-bottom:56px;}
+.trust-item{display:flex;align-items:center;gap:7px;padding:0 24px;font-size:12.5px;font-weight:600;color:#7b7699;}
+.trust-item:not(:last-child){border-right:1px solid rgba(108,99,255,0.15);}
+.trust-icon{font-size:14px;}
+
+/* ── FLOATING TASK CARDS ── */
+.task-stage{position:relative;width:100%;max-width:700px;height:230px;margin:0 auto;}
+.task-card{position:absolute;background:#fff;border:1px solid rgba(108,99,255,0.12);border-radius:14px;padding:14px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 4px 24px rgba(108,99,255,0.09),0 1px 4px rgba(0,0,0,0.04);opacity:0;transform:translateY(10px);transition:opacity 0.55s ease,transform 0.55s ease;white-space:nowrap;pointer-events:none;}
+.task-card.visible{opacity:1;transform:translateY(0);}
+.task-card.fading{opacity:0;transform:translateY(-8px);}
+.task-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.task-icon.purple{background:rgba(108,99,255,0.1);}
+.task-icon.green{background:rgba(74,222,128,0.12);}
+.task-icon.blue{background:rgba(96,165,250,0.12);}
+.task-icon.amber{background:rgba(251,191,36,0.12);}
+.task-body{}
+.task-label{font-size:11.5px;color:#9b96bb;font-weight:500;margin-bottom:2px;}
+.task-text{font-size:13.5px;font-weight:600;color:#1a1833;}
+.task-check{margin-left:auto;width:22px;height:22px;border-radius:50%;background:#6c63ff;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.task-check svg{width:11px;height:11px;stroke:#fff;stroke-width:2.5;fill:none;}
+.tc-1{top:10px;left:0;}
+.tc-2{top:10px;right:0;}
+.tc-3{top:50%;left:50%;transform:translateX(-50%) translateY(-50%);}
+.tc-3.visible{transform:translateX(-50%) translateY(-50%);}
+.tc-3.fading{transform:translateX(-50%) translateY(calc(-50% - 8px));}
+.tc-4{bottom:0;left:40px;}
+.tc-5{bottom:0;right:40px;}
+
+/* ── MARQUEE ── */
+.marquee-section{padding:36px 0;border-top:1px solid rgba(108,99,255,0.08);border-bottom:1px solid rgba(108,99,255,0.08);overflow:hidden;background:#fff;}
+.marquee-track{display:flex;gap:36px;animation:marquee 24s linear infinite;width:max-content;}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-item{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#b0abcc;white-space:nowrap;}
+.marquee-item span{font-size:16px;}
+
+/* ── SECTIONS ── */
+.section-label{font-size:11px;font-weight:700;letter-spacing:2px;color:#6c63ff;text-transform:uppercase;margin-bottom:14px;}
+.section-title{font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-0.8px;color:#1a1833;margin-bottom:16px;line-height:1.15;}
+.section-sub{font-size:16px;color:#7b7699;max-width:500px;line-height:1.65;margin-bottom:56px;}
+
+/* ── PRODUCT ECOSYSTEM ── */
+.ecosystem{padding:100px 40px;max-width:1100px;margin:0 auto;}
+.product-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
+@media(max-width:680px){.product-grid{grid-template-columns:1fr;}}
+.product-card{border-radius:20px;overflow:hidden;border:1px solid rgba(108,99,255,0.12);background:#fff;transition:all .25s;position:relative;}
+.product-card:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(108,99,255,0.12);}
+.product-card-header{padding:32px 32px 0;display:flex;align-items:flex-start;justify-content:space-between;}
+.product-badge{font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:4px 10px;border-radius:6px;}
+.badge-live{background:rgba(74,222,128,0.12);color:#16a34a;}
+.badge-new{background:rgba(108,99,255,0.1);color:#6c63ff;}
+.product-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;}
+.product-icon-work{background:linear-gradient(135deg,rgba(96,165,250,0.12),rgba(108,99,255,0.12));}
+.product-icon-forge{background:linear-gradient(135deg,rgba(108,99,255,0.12),rgba(167,139,250,0.15));}
+.product-preview{margin:20px 32px 0;border-radius:12px;overflow:hidden;border:1px solid rgba(108,99,255,0.1);background:#f4f3ff;height:130px;display:flex;align-items:flex-start;justify-content:flex-start;}
+.product-card-body{padding:24px 32px 32px;}
+.product-name{font-size:22px;font-weight:800;letter-spacing:-0.5px;margin-bottom:8px;color:#1a1833;}
+.product-name span{color:#6c63ff;}
+.product-desc{font-size:14px;color:#7b7699;line-height:1.65;margin-bottom:24px;}
+.product-features{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:28px;}
+.product-features li{font-size:13px;color:#4a4468;display:flex;align-items:center;gap:8px;}
+.product-features li::before{content:'';width:5px;height:5px;border-radius:50%;background:#6c63ff;flex-shrink:0;}
+.product-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;color:#6c63ff;transition:gap .15s;}
+.product-link:hover{gap:10px;}
+.product-link svg{width:14px;height:14px;stroke:#6c63ff;stroke-width:2.5;fill:none;}
+
+/* ── DATA SECTION ── */
+.data-section{padding:100px 40px;background:#1a1833;position:relative;overflow:hidden;}
+.data-glow{position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(ellipse,rgba(108,99,255,0.2) 0%,transparent 70%);pointer-events:none;}
+.data-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+@media(max-width:780px){.data-inner{grid-template-columns:1fr;gap:48px;}}
+.data-text .section-label{color:#a78bfa;}
+.data-text .section-title{color:#fff;}
+.data-text .section-sub{color:#9b96bb;margin-bottom:32px;}
+.data-pills{display:flex;flex-direction:column;gap:14px;}
+.data-pill{display:flex;align-items:center;gap:14px;padding:16px 20px;border-radius:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);}
+.data-pill-icon{width:40px;height:40px;border-radius:10px;background:rgba(108,99,255,0.15);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.data-pill-body{}
+.data-pill-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:3px;}
+.data-pill-desc{font-size:12.5px;color:#7b7699;line-height:1.4;}
+.data-visual{display:flex;flex-direction:column;gap:16px;}
+.data-flow-card{padding:20px 22px;border-radius:14px;background:rgba(255,255,255,0.04);border:1px solid rgba(108,99,255,0.2);}
+.data-flow-label{font-size:11px;font-weight:700;letter-spacing:1.5px;color:#6c63ff;text-transform:uppercase;margin-bottom:12px;}
+.data-flow-path{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.flow-node{font-size:12px;font-weight:600;padding:5px 12px;border-radius:6px;background:rgba(108,99,255,0.12);color:#a78bfa;}
+.flow-arrow{color:#4a4468;font-size:12px;}
+.flow-node.end{background:rgba(74,222,128,0.1);color:#4ade80;}
+.data-flow-note{font-size:11.5px;color:#4a4468;margin-top:10px;}
+
+/* ── HOW IT WORKS ── */
+.how{padding:100px 40px;background:#fff;border-top:1px solid rgba(108,99,255,0.08);border-bottom:1px solid rgba(108,99,255,0.08);}
+.how-inner{max-width:980px;margin:0 auto;}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:56px;}
+@media(max-width:680px){.steps{grid-template-columns:1fr;}}
+.step{position:relative;}
+.step-num{width:40px;height:40px;border-radius:10px;background:rgba(108,99,255,0.08);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:#6c63ff;margin-bottom:18px;}
+.step h3{font-size:16px;font-weight:700;letter-spacing:-0.3px;margin-bottom:8px;}
+.step p{font-size:13.5px;color:#7b7699;line-height:1.6;}
+.step-connector{position:absolute;top:20px;left:calc(100% - 16px);width:32px;height:2px;background:linear-gradient(90deg,rgba(108,99,255,0.3),rgba(108,99,255,0.05));}
+@media(max-width:680px){.step-connector{display:none;}}
+
+/* ── CTA ── */
+.cta{padding:100px 40px;text-align:center;}
+.cta-inner{max-width:600px;margin:0 auto;}
+.cta h2{font-size:clamp(28px,5vw,48px);font-weight:900;letter-spacing:-1.2px;line-height:1.1;margin-bottom:18px;}
+.cta h2 em{font-style:normal;color:#6c63ff;}
+.cta p{font-size:16px;color:#7b7699;margin-bottom:36px;line-height:1.6;}
+.cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid rgba(108,99,255,0.1);padding:32px 40px;}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.foot-logo{display:flex;align-items:center;gap:8px;}
+.foot-logo img{width:20px;height:20px;}
+.foot-name{font-weight:800;font-size:14px;color:#1a1833;}
+.foot-links{display:flex;gap:24px;list-style:none;flex-wrap:wrap;}
+.foot-links a{font-size:12px;color:#9b96bb;font-weight:500;transition:color .15s;}
+.foot-links a:hover{color:#1a1833;}
+.foot-copy{font-size:12px;color:#c4bfdd;}
+
+@media(max-width:768px){
+  nav{padding:0 20px;}
+  .nav-links{display:none;}
+  .ecosystem{padding:70px 20px;}
+  .data-section{padding:70px 20px;}
+  .how{padding:70px 20px;}
+  .cta{padding:70px 20px;}
+  footer{padding:24px 20px;}
+  .footer-inner{flex-direction:column;align-items:flex-start;}
+  .trust-strip{gap:12px;}
+  .trust-item{border-right:none !important;padding:0 12px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-left">
+    <div class="nav-logo">
+      <img src="logo-32.png" alt="Plictor" />
+      <span class="nav-name">Plictor</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/work">Work</a></li>
+      <li><a href="https://app.plictor.com">Forge</a></li>
+      <li><a href="/marketplace">Marketplace</a></li>
+      <li><a href="/download">Download</a></li>
+    </ul>
+  </div>
+  <div class="nav-right">
+    <a href="https://app.plictor.com" class="btn btn-ghost">Sign in</a>
+    <a href="/work" class="btn btn-primary">Try Work free</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+
+  <div class="hero-eyebrow">
+    <span class="eyebrow-dot"></span>
+    The AI that actually knows you
+  </div>
+
+  <h1>Every session it gets<br/><em>smarter about you</em></h1>
+
+  <p class="hero-sub">Other AI tools start from zero every time. Plictor remembers your voice, your clients, your preferences. The longer you use it, the more it works like you.</p>
+
+  <div class="hero-actions">
+    <a href="/work" class="btn btn-primary btn-lg">Try Work free</a>
+    <a href="/download" class="btn btn-ghost btn-lg">Get the desktop app →</a>
+  </div>
+
+  <!-- Trust strip -->
+  <div class="trust-strip">
+    <div class="trust-item"><span class="trust-icon">🧠</span> Persistent memory across every skill</div>
+    <div class="trust-item"><span class="trust-icon">🔒</span> Memory stays on your machine</div>
+    <div class="trust-item"><span class="trust-icon">⚡</span> Works with 11 AI providers</div>
+    <div class="trust-item"><span class="trust-icon">🛠️</span> Setup in under 2 minutes</div>
+  </div>
+
+  <!-- Animated task cards -->
+  <div class="task-stage" id="taskStage">
+    <div class="task-card tc-1" id="tc1">
+      <div class="task-icon green">📧</div>
+      <div class="task-body">
+        <div class="task-label">Plictor Work</div>
+        <div class="task-text">12 follow-ups sent</div>
+      </div>
+      <div class="task-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+    </div>
+    <div class="task-card tc-2" id="tc2">
+      <div class="task-icon purple">🌐</div>
+      <div class="task-body">
+        <div class="task-label">Plictor Forge</div>
+        <div class="task-text">Landing page built in 3 min</div>
+      </div>
+      <div class="task-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+    </div>
+    <div class="task-card tc-3" id="tc3">
+      <div class="task-icon amber">📊</div>
+      <div class="task-body">
+        <div class="task-label">Plictor Work</div>
+        <div class="task-text">Weekly report ready</div>
+      </div>
+      <div class="task-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+    </div>
+    <div class="task-card tc-4" id="tc4">
+      <div class="task-icon blue">🔍</div>
+      <div class="task-body">
+        <div class="task-label">Plictor Work</div>
+        <div class="task-text">Competitor research done</div>
+      </div>
+      <div class="task-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+    </div>
+    <div class="task-card tc-5" id="tc5">
+      <div class="task-icon green">💳</div>
+      <div class="task-body">
+        <div class="task-label">Plictor Work</div>
+        <div class="task-text">Payment received — $240</div>
+      </div>
+      <div class="task-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <div class="marquee-item"><span>⚡</span> AI agent</div>
+    <div class="marquee-item"><span>🌐</span> Website builder</div>
+    <div class="marquee-item"><span>📧</span> Email automation</div>
+    <div class="marquee-item"><span>🔍</span> Web research</div>
+    <div class="marquee-item"><span>💳</span> Stripe monitoring</div>
+    <div class="marquee-item"><span>📝</span> Notion sync</div>
+    <div class="marquee-item"><span>📅</span> Calendar management</div>
+    <div class="marquee-item"><span>🐙</span> GitHub integration</div>
+    <div class="marquee-item"><span>💬</span> Slack automation</div>
+    <div class="marquee-item"><span>📊</span> Analytics reports</div>
+    <div class="marquee-item"><span>🤖</span> Claude · GPT · Gemini · Grok</div>
+    <div class="marquee-item"><span>🏠</span> Run fully local</div>
+    <!-- duplicate for loop -->
+    <div class="marquee-item"><span>⚡</span> AI agent</div>
+    <div class="marquee-item"><span>🌐</span> Website builder</div>
+    <div class="marquee-item"><span>📧</span> Email automation</div>
+    <div class="marquee-item"><span>🔍</span> Web research</div>
+    <div class="marquee-item"><span>💳</span> Stripe monitoring</div>
+    <div class="marquee-item"><span>📝</span> Notion sync</div>
+    <div class="marquee-item"><span>📅</span> Calendar management</div>
+    <div class="marquee-item"><span>🐙</span> GitHub integration</div>
+    <div class="marquee-item"><span>💬</span> Slack automation</div>
+    <div class="marquee-item"><span>📊</span> Analytics reports</div>
+    <div class="marquee-item"><span>🤖</span> Claude · GPT · Gemini · Grok</div>
+    <div class="marquee-item"><span>🏠</span> Run fully local</div>
+  </div>
+</div>
+
+<!-- ECOSYSTEM -->
+<section class="ecosystem">
+  <div class="section-label">The ecosystem</div>
+  <h2 class="section-title">Two tools.<br/>One memory.</h2>
+  <p class="section-sub">Work runs your business and learns how you operate. Forge builds your presence. The longer you use them, the more they sound like you.</p>
+
+  <div class="product-grid">
+
+    <!-- WORK (first) -->
+    <div class="product-card">
+      <div class="product-card-header">
+        <div class="product-icon product-icon-work">⚡</div>
+        <div class="product-badge badge-new">New</div>
+      </div>
+      <div class="product-preview" style="background:#f0f4ff;flex-direction:column;align-items:flex-start;padding:18px 20px;gap:8px;height:130px;justify-content:center;">
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:#6c63ff;">
+          <div style="width:7px;height:7px;border-radius:50%;background:#6c63ff;animation:blink 1.8s ease infinite;"></div>
+          Agent active
+        </div>
+        <div style="font-size:12px;color:#7b7699;background:#fff;border-radius:8px;padding:8px 12px;border:1px solid rgba(108,99,255,0.12);width:100%;">Drafting reply to Sarah's inquiry…</div>
+        <div style="font-size:12px;color:#16a34a;font-weight:600;display:flex;align-items:center;gap:5px;"><span>✓</span> Sent — 14 seconds ago</div>
+      </div>
+      <div class="product-card-body">
+        <div class="product-name">Plictor <span>Work</span></div>
+        <p class="product-desc">An AI agent that learns how you work over time. Your voice, your clients, your preferences — remembered across every session. Your API keys stay on your machine.</p>
+        <ul class="product-features">
+          <li>Email Drafter — learns your voice, gets better every send</li>
+          <li>Web Research — remembers what you care about</li>
+          <li>Connect Gmail, Stripe, Notion, Slack and more</li>
+          <li>Works with Claude, GPT, Gemini, Grok + run fully local</li>
+        </ul>
+        <a href="/work" class="product-link">
+          Try free in browser
+          <svg viewBox="0 0 14 14"><line x1="2" y1="7" x2="12" y2="7"/><polyline points="8,3 12,7 8,11"/></svg>
+        </a>
+        <a href="/download" class="product-link" style="margin-top:6px;font-size:12px;color:#9b96bb;">
+          Get the desktop app →
+        </a>
+      </div>
+    </div>
+
+    <!-- FORGE (second) -->
+    <div class="product-card">
+      <div class="product-card-header">
+        <div class="product-icon product-icon-forge">🏗️</div>
+        <div class="product-badge badge-live">Live</div>
+      </div>
+      <div class="product-preview" style="background:#f4f3ff;padding:20px;flex-direction:column;align-items:flex-start;justify-content:center;height:130px;gap:8px;">
+        <div style="height:10px;border-radius:5px;background:rgba(108,99,255,0.2);width:85%;"></div>
+        <div style="height:8px;border-radius:4px;background:rgba(108,99,255,0.12);width:65%;"></div>
+        <div style="height:8px;border-radius:4px;background:rgba(108,99,255,0.08);width:50%;"></div>
+        <div style="display:flex;gap:8px;margin-top:4px;">
+          <div style="height:28px;width:80px;border-radius:6px;background:rgba(108,99,255,0.15);"></div>
+          <div style="height:28px;width:60px;border-radius:6px;background:rgba(108,99,255,0.06);border:1px solid rgba(108,99,255,0.12);"></div>
+        </div>
+      </div>
+      <div class="product-card-body">
+        <div class="product-name">Plictor <span>Forge</span></div>
+        <p class="product-desc">Pick a template, customize it visually, download the code. Your site, your files — no monthly hosting fees ever.</p>
+        <ul class="product-features">
+          <li>10 premium templates included</li>
+          <li>Visual editor — no code needed</li>
+          <li>Download clean HTML/CSS/JS</li>
+          <li>AI-generated sections on demand</li>
+        </ul>
+        <a href="https://app.plictor.com" class="product-link">
+          Open Forge
+          <svg viewBox="0 0 14 14"><line x1="2" y1="7" x2="12" y2="7"/><polyline points="8,3 12,7 8,11"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DATA / PRIVACY SECTION -->
+<section class="data-section">
+  <div class="data-glow"></div>
+  <div class="data-inner">
+    <div class="data-text">
+      <div class="section-label">The memory advantage</div>
+      <h2 class="section-title" style="color:#fff;">Most AI tools<br/>forget everything</h2>
+      <p class="section-sub">Every other tool resets when you close the tab. Plictor builds a profile of how you work — and uses it every single time. Your memory stays on your machine. We never see it.</p>
+      <div class="data-pills">
+        <div class="data-pill">
+          <div class="data-pill-icon">🧠</div>
+          <div class="data-pill-body">
+            <div class="data-pill-title">Learns your voice</div>
+            <div class="data-pill-desc">Email Drafter reads how you write and matches your tone. After a few sessions it sounds exactly like you — not a robot.</div>
+          </div>
+        </div>
+        <div class="data-pill">
+          <div class="data-pill-icon">👥</div>
+          <div class="data-pill-body">
+            <div class="data-pill-title">Remembers your clients</div>
+            <div class="data-pill-desc">Tell it about a client once. It remembers the context, the history, the preferences — so you never have to repeat yourself.</div>
+          </div>
+        </div>
+        <div class="data-pill">
+          <div class="data-pill-icon">🔒</div>
+          <div class="data-pill-body">
+            <div class="data-pill-title">Memory lives on your machine</div>
+            <div class="data-pill-desc">Your memory file is stored locally. We never see it, never sync it, never sell it. Your data stays yours — always.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="data-visual">
+      <div class="data-flow-card">
+        <div class="data-flow-label">Cloud mode</div>
+        <div class="data-flow-path">
+          <div class="flow-node">Your browser</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-node end">Anthropic / OpenAI</div>
+        </div>
+        <div class="data-flow-note">Plictor is not in this path.</div>
+      </div>
+      <div class="data-flow-card">
+        <div class="data-flow-label">Local mode</div>
+        <div class="data-flow-path">
+          <div class="flow-node">Your browser</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-node end">Your machine</div>
+        </div>
+        <div class="data-flow-note">100% local. Nothing leaves your device.</div>
+      </div>
+      <div class="data-flow-card" style="border-color:rgba(74,222,128,0.2);">
+        <div class="data-flow-label" style="color:#4ade80;">What Plictor stores</div>
+        <div style="font-size:13px;color:#4a4468;line-height:1.6;margin-top:4px;">Your brain config (provider name + model only), which MCPs you connected, and your skill settings. <strong style="color:#7b7699;">That's it.</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="how-inner">
+    <div class="section-label">How it works</div>
+    <h2 class="section-title">Works in minutes.<br/>Gets better forever.</h2>
+    <p class="section-sub">No engineers. No onboarding calls. Click a skill, use it, watch it learn.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Pick a skill and go</h3>
+        <p>Click any skill from the marketplace — Email Drafter, Web Research, Invoice Follow-up. No setup. Works immediately.</p>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Connect your tools</h3>
+        <p>One click to add Gmail, Stripe, Notion, Slack, and more. Each integration takes under 30 seconds.</p>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>It learns as you use it</h3>
+        <p>Every interaction teaches it how you work. After a few sessions it knows your voice, your clients, your preferences — without you lifting a finger.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner">
+    <h2>The only AI tool that<br/><em>actually knows you</em></h2>
+    <p>Try free in the browser. Every skill works immediately — and gets smarter the more you use it. When you're ready to unlock persistent memory, go Pro.</p>
+    <div class="cta-actions">
+      <a href="/work" class="btn btn-primary btn-lg">Try Work free</a>
+      <a href="/download" class="btn btn-ghost btn-lg">Get the desktop app →</a>
+      <a href="https://app.plictor.com" class="btn btn-ghost btn-lg">Build with Forge</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="foot-logo">
+      <img src="logo-32.png" alt="Plictor" />
+      <span class="foot-name">Plictor</span>
+    </div>
+    <ul class="foot-links">
+      <li><a href="/work">Work</a></li>
+      <li><a href="https://app.plictor.com">Forge</a></li>
+      <li><a href="/marketplace">Marketplace</a></li>
+      <li><a href="/privacy">Privacy Policy</a></li>
+      <li><a href="/terms">Terms of Use</a></li>
+      <li><a href="mailto:hello@plictor.com">Contact</a></li>
+    </ul>
+    <span class="foot-copy">© 2026 Plictor. Built by G/C.</span>
+  </div>
+</footer>
+
+<script>
+const cards = ['tc1','tc2','tc3','tc4','tc5'];
+const delays = [0, 300, 600, 900, 1200];
+
+window.addEventListener('load', () => {
+  cards.forEach((id, i) => {
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) el.classList.add('visible');
+    }, 600 + delays[i]);
+  });
+
+  const taskData = [
+    { icon:'📧', color:'green',  label:'Plictor Work',   text:'12 follow-ups sent' },
+    { icon:'🌐', color:'purple', label:'Plictor Forge',  text:'Landing page built in 3 min' },
+    { icon:'📊', color:'amber',  label:'Plictor Work',   text:'Weekly report ready' },
+    { icon:'🔍', color:'blue',   label:'Plictor Work',   text:'Competitor research done' },
+    { icon:'💳', color:'green',  label:'Plictor Work',   text:'Payment received — $240' },
+    { icon:'📝', color:'blue',   label:'Plictor Work',   text:'Notion doc updated' },
+    { icon:'📅', color:'amber',  label:'Plictor Work',   text:'Meeting scheduled with lead' },
+    { icon:'💬', color:'green',  label:'Plictor Work',   text:'Slack report posted' },
+    { icon:'🤝', color:'purple', label:'Plictor Work',   text:'Proposal drafted and sent' },
+    { icon:'📈', color:'green',  label:'Plictor Work',   text:'Revenue up 18% this week' },
+    { icon:'🛍️', color:'amber',  label:'Plictor Work',   text:'3 new orders processed' },
+    { icon:'🧾', color:'blue',   label:'Plictor Work',   text:'Invoice sent to client' },
+  ];
+
+  let nextIdx = taskData.length;
+
+  function cycleCard(cardId) {
+    const el = document.getElementById(cardId);
+    if (!el) return;
+    el.classList.add('fading');
+    el.classList.remove('visible');
+    setTimeout(() => {
+      const t = taskData[nextIdx % taskData.length];
+      nextIdx++;
+      el.querySelector('.task-icon').textContent = t.icon;
+      el.querySelector('.task-icon').className = 'task-icon ' + t.color;
+      el.querySelector('.task-label').textContent = t.label;
+      el.querySelector('.task-text').textContent = t.text;
+      el.classList.remove('fading');
+      el.classList.add('visible');
+    }, 580);
+  }
+
+  cards.forEach((id, i) => {
+    setInterval(() => cycleCard(id), 3800 + i * 700);
+  });
+});
+</script>
+</body>
+</html>
