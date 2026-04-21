@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<!-- ╔══════════════════════╗
+     ║   Created by G/C     ║
+     ╚══════════════════════╝
+     plictor.com/pro — Pro pricing page -->
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZFGFTV1T9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2ZFGFTV1T9');
+  </script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Plictor Work Pro — Memory, Voice, Security. One payment.</title>
+<meta name="description" content="Plictor Work Pro gives your AI a voice, a memory, and a security watchdog. $79 one-time — no subscription, no recurring fees." />
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+:root {
+  --bg: #fafafa; --bg-2: #f0f0f0; --bg-3: #ffffff;
+  --border: #e0e0e0; --border-2: #d0d0d0;
+  --text: #111111; --text-2: #555555; --text-3: #999999;
+  --accent: #0f172a; --accent-2: #334155; --accent-3: #475569;
+  --green: #16a34a; --yellow: #facc15;
+  --f-display: 'Bricolage Grotesque', sans-serif;
+  --f-body: 'Outfit', sans-serif;
+}
+body { font-family: var(--f-body); background: var(--bg); color: var(--text); overflow-x: hidden; }
+a { text-decoration: none; color: inherit; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 60px; padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(250,250,250,0.92); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+@media(max-width:768px) {
+  nav ul { display: none; }
+  nav { padding: 0 1rem; }
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 9px 20px; border-radius: 4px; font-size: 0.875rem; font-weight: 600;
+  border: none; cursor: pointer; font-family: var(--f-body); transition: all .2s ease;
+}
+.btn-ghost { background: transparent; color: var(--text-2); border: 1px solid var(--border-2); }
+.btn-ghost:hover { color: var(--text); border-color: var(--text-2); }
+.btn-dark { background: var(--accent); color: #fff; font-weight: 700; }
+.btn-dark:hover { background: var(--accent-2); transform: translateY(-1px); }
+.btn-lg { padding: 13px 28px; font-size: 1rem; }
+
+/* HERO */
+.hero {
+  padding: 120px 24px 80px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 4px 12px; border-radius: 3px;
+  background: var(--bg-2); border: 1px solid var(--border);
+  color: var(--text-2); font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  margin-bottom: 28px;
+}
+.eyebrow-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--accent-3);
+  animation: blink 2.2s ease infinite;
+}
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+.hero h1 {
+  font-family: var(--f-display);
+  font-size: clamp(36px, 6vw, 62px);
+  font-weight: 800; letter-spacing: -0.03em; line-height: 1.05;
+  color: var(--text); margin-bottom: 20px;
+}
+.hero-sub {
+  font-size: 1.0625rem; color: var(--text-2); line-height: 1.65;
+  max-width: 520px; margin: 0 auto 56px;
+}
+
+/* PRICING GRID — border-separated, no card radius */
+.pricing-outer {
+  border: 1px solid var(--border); border-radius: 2px;
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  overflow: hidden; margin-bottom: 16px;
+}
+@media(max-width:700px) {
+  .pricing-outer { grid-template-columns: 1fr; }
+  .plan-col:not(:last-child) { border-right: none; border-bottom: 1px solid var(--border); }
+}
+.plan-col {
+  padding: 36px 28px; background: var(--bg-3);
+  display: flex; flex-direction: column;
+}
+.plan-col:not(:last-child) { border-right: 1px solid var(--border); }
+.plan-col.featured { background: var(--accent); color: #fff; }
+.plan-label {
+  font-size: 0.6875rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--text-3); margin-bottom: 12px;
+}
+.plan-col.featured .plan-label { color: rgba(255,255,255,0.5); }
+.plan-best {
+  display: inline-block; font-size: 0.6875rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  background: var(--yellow); color: var(--accent); border-radius: 2px;
+  padding: 2px 8px; margin-bottom: 12px; align-self: flex-start;
+}
+.plan-price {
+  font-family: var(--f-display); font-size: 44px; font-weight: 800;
+  letter-spacing: -0.03em; line-height: 1; margin-bottom: 4px;
+  color: var(--text);
+}
+.plan-col.featured .plan-price { color: #fff; }
+.plan-price sub { font-size: 14px; font-weight: 500; color: var(--text-3); vertical-align: middle; font-family: var(--f-body); }
+.plan-col.featured .plan-price sub { color: rgba(255,255,255,0.5); }
+.plan-billing { font-size: 0.8125rem; color: var(--text-3); margin-bottom: 24px; }
+.plan-col.featured .plan-billing { color: rgba(255,255,255,0.5); }
+.plan-divider { width: 100%; height: 1px; background: var(--border); margin: 0 0 24px; }
+.plan-col.featured .plan-divider { background: rgba(255,255,255,0.15); }
+.plan-features { list-style: none; display: flex; flex-direction: column; gap: 10px; flex: 1; margin-bottom: 28px; }
+.plan-features li { font-size: 0.8125rem; color: var(--text-2); display: flex; gap: 8px; align-items: flex-start; line-height: 1.5; }
+.plan-col.featured .plan-features li { color: rgba(255,255,255,0.75); }
+.plan-features li .chk { color: var(--green); font-weight: 700; flex-shrink: 0; }
+.plan-col.featured .plan-features li .chk { color: var(--yellow); }
+.plan-features li .lck { color: var(--border-2); flex-shrink: 0; }
+.plan-features li .dim { color: var(--border-2); }
+.plan-btn {
+  display: block; width: 100%; padding: 12px; border-radius: 3px;
+  font-size: 0.875rem; font-weight: 700; text-align: center;
+  font-family: var(--f-body); transition: all .2s; cursor: pointer;
+  border: none;
+}
+.plan-btn-outline {
+  background: transparent; color: var(--accent-3);
+  border: 1px solid var(--border-2);
+}
+.plan-btn-outline:hover { background: var(--bg-2); border-color: var(--accent-3); }
+.plan-btn-featured { background: #fff; color: var(--accent); font-weight: 700; }
+.plan-btn-featured:hover { background: var(--bg-2); }
+.pricing-note { font-size: 0.8125rem; color: var(--text-3); text-align: center; }
+
+/* WHAT PRO UNLOCKS */
+.section {
+  padding: 96px 24px;
+  max-width: 1060px; margin: 0 auto;
+}
+.section-eyebrow {
+  font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--accent-3); margin-bottom: 12px;
+}
+.section-title {
+  font-family: var(--f-display);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800; letter-spacing: -0.03em; line-height: 1.08;
+  color: var(--text); margin-bottom: 14px;
+}
+.section-sub {
+  font-size: 1rem; color: var(--text-2); line-height: 1.65;
+  max-width: 480px; margin-bottom: 56px;
+}
+
+/* Features 2x2 bento */
+.feat-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--border); border-radius: 2px; overflow: hidden;
+}
+@media(max-width:640px) { .feat-grid { grid-template-columns: 1fr; } }
+.feat-cell {
+  padding: 32px; background: var(--bg-3);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.feat-cell:nth-child(2n) { border-right: none; }
+.feat-cell:nth-last-child(-n+2) { border-bottom: none; }
+@media(max-width:640px) {
+  .feat-cell { border-right: none; }
+  .feat-cell:last-child { border-bottom: none; }
+}
+.feat-icon-label {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+}
+.feat-icon {
+  width: 36px; height: 36px; border-radius: 3px;
+  background: var(--bg-2); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.feat-name {
+  font-family: var(--f-display); font-size: 1rem; font-weight: 700; color: var(--text);
+}
+.feat-tag {
+  display: inline-block; font-size: 0.6875rem; font-weight: 600;
+  color: var(--text-3); border: 1px solid var(--border); border-radius: 2px;
+  padding: 2px 8px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.04em;
+}
+.feat-desc { font-size: 0.875rem; color: var(--text-2); line-height: 1.7; }
+
+/* DARK CALLOUT */
+.dark-callout {
+  background: var(--accent); padding: 80px 24px;
+}
+.dark-inner {
+  max-width: 640px; margin: 0 auto; text-align: center;
+}
+.dark-callout h2 {
+  font-family: var(--f-display);
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 800; letter-spacing: -0.03em; color: #fff;
+  margin-bottom: 16px; line-height: 1.1;
+}
+.dark-callout p { font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 36px; }
+.btn-white { background: #fff; color: var(--accent); font-weight: 700; }
+.btn-white:hover { background: var(--bg-2); transform: translateY(-1px); }
+
+/* FAQ */
+.faq-wrap {
+  max-width: 680px; margin: 0 auto;
+  padding: 96px 24px;
+}
+.faq-eyebrow {
+  font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--accent-3); margin-bottom: 40px; text-align: center;
+}
+.faq-list { border: 1px solid var(--border); border-radius: 2px; overflow: hidden; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q {
+  width: 100%; padding: 20px 24px; background: var(--bg-3); border: none;
+  text-align: left; cursor: pointer; display: flex; align-items: center;
+  justify-content: space-between; gap: 16px;
+  font-family: var(--f-body); font-size: 0.9375rem; font-weight: 600; color: var(--text);
+  transition: background 0.15s;
+}
+.faq-q:hover { background: var(--bg-2); }
+.faq-q .caret { color: var(--text-3); transition: transform 0.2s; flex-shrink: 0; }
+.faq-q.open .caret { transform: rotate(180deg); }
+.faq-a {
+  display: none; padding: 0 24px 20px;
+  font-size: 0.875rem; color: var(--text-2); line-height: 1.75;
+  background: var(--bg-3);
+}
+.faq-a.open { display: block; }
+
+/* CTA bottom */
+.cta-section {
+  background: var(--accent-2); padding: 96px 24px; text-align: center;
+}
+.cta-section h2 {
+  font-family: var(--f-display);
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 800; letter-spacing: -0.03em; color: #fff;
+  margin-bottom: 12px;
+}
+.cta-section p { font-size: 1rem; color: rgba(255,255,255,0.65); margin-bottom: 36px; }
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem;
+}
+footer .footer-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+}
+footer ul { display: flex; gap: 24px; list-style: none; flex-wrap: wrap; }
+footer ul a { font-size: 0.8125rem; color: var(--text-2); }
+footer ul a:hover { color: var(--text); }
+footer span { font-size: 0.75rem; color: var(--text-3); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div style="display:flex;align-items:center;">
+    <a href="/" style="display:flex;align-items:center;gap:10px;">
+      <img src="/logo-32.png" alt="Plictor" style="width:24px;height:24px;"/>
+      <span style="font-family:var(--f-display);font-weight:700;font-size:15px;letter-spacing:-0.3px;color:var(--text);">Plictor</span>
+    </a>
+    <ul style="display:flex;align-items:center;gap:24px;list-style:none;margin-left:32px;">
+      <li><a href="/work" style="font-size:0.875rem;font-weight:500;color:var(--text-2);">Work</a></li>
+      <li><a href="/secure" style="font-size:0.875rem;font-weight:500;color:var(--text-2);">Secure</a></li>
+      <li><a href="/marketplace" style="font-size:0.875rem;font-weight:500;color:var(--text-2);">Marketplace</a></li>
+      <li><a href="/bible" style="font-size:0.875rem;font-weight:500;color:var(--text-2);">Free Skills</a></li>
+      <li><a href="/pro" style="font-size:0.875rem;font-weight:500;color:var(--text-2);">Pro</a></li>
+      <li><a href="/download" style="font-size:0.875rem;font-weight:500;color:var(--text-2);">Download</a></li>
+    </ul>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <a href="https://app.plictor.com" class="btn btn-ghost">Sign in</a>
+    <a href="/work" class="btn btn-dark">Try free</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow"><span class="eyebrow-dot"></span> Plictor Work Pro</div>
+  <h1>Your AI that talks, remembers,<br/>and watches your back.</h1>
+  <p class="hero-sub">Voice in, voice out. Memory across every session. Security that runs itself. One payment — yours forever.</p>
+
+  <!-- PRICING GRID -->
+  <div class="pricing-outer">
+
+    <div class="plan-col">
+      <div class="plan-label">Base App</div>
+      <div class="plan-price">$10 <sub>one-time</sub></div>
+      <div class="plan-billing">No subscription</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><span class="chk">✓</span> All AI providers (BYOK)</li>
+        <li><span class="chk">✓</span> Web search + skills</li>
+        <li><span class="chk">✓</span> Task manager</li>
+        <li><span class="chk">✓</span> Stripe tools</li>
+        <li><span class="lck">✗</span> <span class="dim">Memory</span></li>
+        <li><span class="lck">✗</span> <span class="dim">Neural Voice</span></li>
+        <li><span class="lck">✗</span> <span class="dim">Security Suite</span></li>
+        <li><span class="lck">✗</span> <span class="dim">Automations</span></li>
+      </ul>
+      <a href="https://buy.stripe.com/eVq7sE2z02SR7tZgkucjS0s" class="plan-btn plan-btn-outline">Download — $10</a>
+    </div>
+
+    <div class="plan-col featured">
+      <div class="plan-best">Best Value</div>
+      <div class="plan-label">Pro Lifetime</div>
+      <div class="plan-price">$79 <sub>one-time</sub></div>
+      <div class="plan-billing">Everything, forever. No renewals.</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><span class="chk">✓</span> Everything in Base</li>
+        <li><span class="chk">✓</span> Persistent memory</li>
+        <li><span class="chk">✓</span> Neural Voice — no key needed</li>
+        <li><span class="chk">✓</span> Security Suite</li>
+        <li><span class="chk">✓</span> Automations</li>
+        <li><span class="chk">✓</span> 10 skill pack</li>
+        <li><span class="chk">✓</span> All future Pro updates</li>
+      </ul>
+      <a href="https://buy.stripe.com/aFa3coa1sdxv5lRc4ecjS0u" class="plan-btn plan-btn-featured">Get Pro Lifetime — $79</a>
+    </div>
+
+    <div class="plan-col">
+      <div class="plan-label">Pro Monthly</div>
+      <div class="plan-price">$20 <sub>/mo</sub></div>
+      <div class="plan-billing">Cancel anytime</div>
+      <div class="plan-divider"></div>
+      <ul class="plan-features">
+        <li><span class="chk">✓</span> Everything in Base</li>
+        <li><span class="chk">✓</span> Persistent memory</li>
+        <li><span class="chk">✓</span> Neural Voice — no key needed</li>
+        <li><span class="chk">✓</span> Security Suite</li>
+        <li><span class="chk">✓</span> Automations</li>
+        <li><span class="chk">✓</span> 10 skill pack</li>
+      </ul>
+      <a href="https://buy.stripe.com/fZu6oA7Tk50ZcOj0lwcjS0t" class="plan-btn plan-btn-outline">Subscribe — $20/mo</a>
+    </div>
+
+  </div>
+  <p class="pricing-note">All plans · Windows · Mac · Linux · Lifetime app updates</p>
+</section>
+
+<!-- WHAT PRO UNLOCKS -->
+<div style="border-top:1px solid var(--border);">
+  <div class="section">
+    <div class="section-eyebrow">What Pro unlocks</div>
+    <h2 class="section-title">Four things that change<br/>how you work.</h2>
+    <p class="section-sub">Free is great. Pro is the version that actually knows you.</p>
+
+    <div class="feat-grid">
+      <div class="feat-cell">
+        <div class="feat-icon-label">
+          <div class="feat-icon">🧠</div>
+          <div class="feat-name">Persistent Memory</div>
+        </div>
+        <div class="feat-tag">Learns you over time</div>
+        <p class="feat-desc">Your agent remembers your clients, your preferences, how you write, and what you care about. It gets smarter every session. Close the app and come back Monday — it hasn't forgotten a thing.</p>
+      </div>
+      <div class="feat-cell">
+        <div class="feat-icon-label">
+          <div class="feat-icon">🎙️</div>
+          <div class="feat-name">Neural Voice — no key needed</div>
+        </div>
+        <div class="feat-tag">Mic input + AI readback</div>
+        <p class="feat-desc">Human-sounding neural voice built in. No API key needed. Choose from British, American, or Australian voices. Works on all platforms. Hands-free, eyes-free.</p>
+      </div>
+      <div class="feat-cell">
+        <div class="feat-icon-label">
+          <div class="feat-icon">🛡️</div>
+          <div class="feat-name">Security Suite</div>
+        </div>
+        <div class="feat-tag">Local audit · No cloud</div>
+        <p class="feat-desc">Runs a local security audit on your machine. Scans for exposed API keys, insecure file permissions, and .env files left in the open. Gives you a score and tells you exactly what to fix.</p>
+      </div>
+      <div class="feat-cell">
+        <div class="feat-icon-label">
+          <div class="feat-icon">⏰</div>
+          <div class="feat-name">Automations</div>
+        </div>
+        <div class="feat-tag">Set and forget</div>
+        <p class="feat-desc">Schedule agent tasks to run without you. Daily revenue check, weekly competitor scan, Monday morning briefing — set it once, it runs on its own. Your agent works while you sleep.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DARK CALLOUT -->
+<div class="dark-callout">
+  <div class="dark-inner">
+    <h2>Every other AI tool<br/>forgets you every session.</h2>
+    <p>You explain your business, your tone, your clients — over and over. Plictor Pro remembers all of it. The longer you use it, the more it sounds like you, thinks like you, works like you.</p>
+    <a href="https://buy.stripe.com/aFa3coa1sdxv5lRc4ecjS0u" class="btn btn-white btn-lg">Get Pro Lifetime — $79</a>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-wrap">
+  <div class="faq-eyebrow">Common questions</div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What does "lifetime" mean exactly?
+        <svg class="caret" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-a">One payment, Pro features active forever on that install. No renewals, no expiry. Future Pro updates included.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Do I need to bring my own API key?
+        <svg class="caret" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-a">Yes — Plictor is BYOK (bring your own key). You connect OpenAI, Anthropic, Gemini, or any other provider. Your keys stay on your machine and you pay providers directly. We never touch your API calls.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Where is my memory stored?
+        <svg class="caret" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-a">Locally on your machine at ~/Documents/PlictorWork/memory.md. Nothing syncs to our servers. Your data is yours.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        Does voice work offline?
+        <svg class="caret" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-a">Voice input uses your device's built-in speech recognition (no third-party API). Neural voice readback is fully offline using the built-in engine. No external calls, no key required.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What's the difference between Pro Lifetime and Pro Monthly?
+        <svg class="caret" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-a">Same features. Lifetime is $79 once — you never pay again. Monthly is $20/mo — flexible if you want to try before committing. Lifetime pays for itself in 4 months.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        What platforms does it run on?
+        <svg class="caret" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-a">Windows 10/11, macOS 11+, and Linux (AppImage). All included in one purchase.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>The AI that actually<br/>knows you.</h2>
+  <p>One payment. Memory, voice, security — yours forever.</p>
+  <a href="https://buy.stripe.com/aFa3coa1sdxv5lRc4ecjS0u" class="btn btn-white btn-lg">Get Pro Lifetime — $79</a>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <img src="/logo-32.png" style="width:20px;height:20px;" alt="Plictor"/>
+      <span style="font-family:var(--f-display);font-weight:700;font-size:14px;">Plictor</span>
+    </div>
+    <ul>
+      <li><a href="/work">Work</a></li>
+      <li><a href="/secure">Secure</a></li>
+      <li><a href="https://app.plictor.com">Forge</a></li>
+      <li><a href="/marketplace">Marketplace</a></li>
+      <li><a href="/bible">Free Skills</a></li>
+      <li><a href="/pro">Pro</a></li>
+      <li><a href="/download">Download</a></li>
+      <li><a href="/privacy">Privacy</a></li>
+      <li><a href="/terms">Terms</a></li>
+      <li><a href="mailto:hello@plictor.com">Contact</a></li>
+    </ul>
+    <span>© 2026 Plictor. Built by G/C.</span>
+  </div>
+</footer>
+
+<script>
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const isOpen = answer.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
+    // Open clicked if it was closed
+    if (!isOpen) {
+      answer.classList.add('open');
+      btn.classList.add('open');
+    }
+  }
+</script>
+</body>
+</html>

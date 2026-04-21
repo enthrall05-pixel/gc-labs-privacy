@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<!--
+╔══════════════════════╗
+║   Created by G/C     ║
+╚══════════════════════╝
+-->
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZFGFTV1T9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2ZFGFTV1T9');
+  </script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy — Plictor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #fafafa; --bg-2: #f0f0f0; --bg-3: #ffffff;
+  --border: #e0e0e0; --border-2: #d0d0d0;
+  --text: #111111; --text-2: #555555; --text-3: #999999;
+  --accent: #0f172a; --accent-2: #334155; --accent-3: #475569;
+  --green: #16a34a; --yellow: #facc15;
+  --f-display: 'Bricolage Grotesque', sans-serif;
+  --f-body: 'Outfit', sans-serif;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: var(--f-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+a { color: var(--accent-2); text-decoration: none; }
+a:hover { text-decoration: underline; }
+nav {
+  padding: 0 40px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.prose {
+  max-width: 680px;
+  margin: 60px auto;
+  padding: 0 24px 100px;
+}
+.prose h1 {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 2.5rem;
+  letter-spacing: -0.5px;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.prose .meta {
+  font-family: var(--f-body);
+  font-size: 0.875rem;
+  color: var(--text-3);
+  margin-bottom: 40px;
+}
+.prose h2 {
+  font-family: var(--f-display);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text);
+  margin: 36px 0 12px;
+}
+.prose p {
+  font-family: var(--f-body);
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--text-2);
+  margin-bottom: 16px;
+}
+.prose ul {
+  padding-left: 20px;
+  margin-bottom: 16px;
+}
+.prose ul li {
+  font-family: var(--f-body);
+  font-size: 1rem;
+  color: var(--text-2);
+  margin-bottom: 8px;
+}
+.highlight {
+  background: var(--bg-2);
+  border-left: 3px solid var(--accent-2);
+  padding: 16px 20px;
+  margin: 28px 0 36px;
+  border-radius: 0 6px 6px 0;
+}
+.highlight p {
+  color: var(--text);
+  font-weight: 500;
+  margin: 0;
+}
+footer a { color: var(--text-2); }
+footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+    <img src="/logo-32.png" alt="Plictor" style="width:24px;height:24px;"/>
+    <span style="font-family:var(--f-display);font-weight:700;font-size:15px;letter-spacing:-0.3px;color:var(--text);">Plictor</span>
+  </a>
+  <a href="/" style="font-size:0.875rem;font-weight:600;color:var(--text-2);text-decoration:none;">← Back to home</a>
+</nav>
+
+<div class="prose">
+  <h1>Privacy Policy</h1>
+  <p class="meta">Last updated: April 2026</p>
+
+  <div class="highlight">
+    <p>Short version: We don't see your conversations, we don't store your API keys, and your data goes directly from your browser to your chosen AI provider. Plictor is just the interface.</p>
+  </div>
+
+  <h2>1. What Plictor is</h2>
+  <p>Plictor is a browser-based interface that lets you interact with AI providers of your choice (such as Anthropic, OpenAI, Google, xAI, and others) and connect to third-party services via MCP integrations. Plictor Work runs entirely in your browser. We do not proxy, store, or have access to your AI conversations.</p>
+
+  <h2>2. Data we do not collect</h2>
+  <ul>
+    <li>Your AI conversations — these go directly from your browser to your chosen provider</li>
+    <li>Your API keys — stored in your browser's localStorage only, never transmitted to Plictor servers</li>
+    <li>Content from connected integrations (Gmail, Stripe, Notion, etc.)</li>
+    <li>Any files, documents, or data you work with through the agent</li>
+  </ul>
+
+  <h2>3. Data stored in your browser</h2>
+  <p>Plictor Work stores the following locally in your browser using localStorage:</p>
+  <ul>
+    <li>Your selected AI provider name and model (not your API key value)</li>
+    <li>Which MCP integrations you have enabled</li>
+    <li>Your skills and preference settings</li>
+  </ul>
+  <p>This data never leaves your device unless you explicitly export it.</p>
+
+  <h2>4. Plictor Forge</h2>
+  <p>Plictor Forge (the website builder at plictor.com/forge) uses Supabase for account management and stores your projects, templates, and usage data. Your account email and usage metrics are stored to support the product's credit system and billing.</p>
+
+  <h2>5. Third-party providers</h2>
+  <p>When you use Plictor Work with a cloud AI provider, your messages are sent directly to that provider under their own privacy policy. We recommend reviewing the privacy policies of any provider you use:</p>
+  <ul>
+    <li><a href="https://anthropic.com/privacy" target="_blank" rel="noopener">Anthropic: anthropic.com/privacy</a></li>
+    <li><a href="https://openai.com/privacy" target="_blank" rel="noopener">OpenAI: openai.com/privacy</a></li>
+    <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google: policies.google.com/privacy</a></li>
+    <li><a href="https://x.ai/privacy" target="_blank" rel="noopener">xAI: x.ai/privacy</a></li>
+  </ul>
+
+  <h2>6. Analytics</h2>
+  <p>We may collect basic, anonymous usage analytics (page views, feature usage) to improve the product. No personally identifiable information is included.</p>
+
+  <h2>7. Changes to this policy</h2>
+  <p>We may update this policy as the product evolves. The date at the top of this page reflects the most recent revision. Continued use of Plictor after changes constitutes acceptance.</p>
+
+  <h2>8. Contact</h2>
+  <p>Questions? Email us at <a href="mailto:hello@plictor.com">hello@plictor.com</a></p>
+</div>
+
+<footer style="text-align:center;padding:2rem;font-size:0.8rem;color:var(--text-3);border-top:1px solid var(--border);">© 2026 Plictor · <a href="/privacy" style="color:var(--text-2);">Privacy</a> · <a href="/terms" style="color:var(--text-2);">Terms</a> · hello@plictor.com</footer>
+
+</body>
+</html>

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<!--
+╔══════════════════════╗
+║   Created by G/C     ║
+╚══════════════════════╝
+plictor.com/marketplace — Skills marketplace directory
+-->
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2ZFGFTV1T9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2ZFGFTV1T9');
+  </script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Plictor Skills Marketplace — Find your skill</title>
+<meta name="description" content="Browse Plictor skills by your role or task. Click to install — no setup, works immediately, learns you over time." />
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #fafafa; --bg-2: #f0f0f0; --bg-3: #ffffff;
+  --border: #e0e0e0; --border-2: #d0d0d0;
+  --text: #111111; --text-2: #555555; --text-3: #999999;
+  --accent: #0f172a; --accent-2: #334155; --accent-3: #475569;
+  --green: #16a34a; --yellow: #facc15;
+  --f-display: 'Bricolage Grotesque', sans-serif;
+  --f-body: 'Outfit', sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--f-body);background:var(--bg);color:var(--text);overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 40px;height:62px;display:flex;align-items:center;justify-content:space-between;background:rgba(250,250,250,0.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 20px;border-radius:8px;font-size:13px;font-weight:600;border:none;cursor:pointer;font-family:var(--f-body);transition:all .18s;text-decoration:none;}
+.btn-ghost{background:transparent;color:var(--text-2);border:1px solid var(--border);}
+.btn-ghost:hover{color:var(--text);border-color:var(--border-2);}
+.btn-dark{background:var(--accent);color:#fff;border:1px solid var(--accent);}
+.btn-dark:hover{background:var(--accent-2);transform:translateY(-1px);box-shadow:0 4px 14px rgba(15,23,42,0.2);}
+
+/* ── PAGE HEADER ── */
+.page-header{padding:116px 40px 56px;text-align:center;}
+.page-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:100px;background:var(--bg-2);border:1px solid var(--border);color:var(--text-3);font-size:11.5px;font-weight:600;letter-spacing:0.4px;margin-bottom:20px;font-family:var(--f-body);}
+.page-header h1{font-family:var(--f-display);font-size:clamp(30px,5vw,52px);font-weight:800;letter-spacing:-1.5px;line-height:1.08;margin-bottom:16px;color:var(--text);}
+.page-header h1 em{font-style:normal;color:var(--accent-3);}
+.page-header p{font-size:16px;color:var(--text-2);max-width:440px;margin:0 auto;line-height:1.7;font-weight:400;}
+
+/* ── BROWSE TABS ── */
+.browse-wrap{max-width:1100px;margin:0 auto;padding:0 40px 64px;}
+.browse-tabs{display:flex;gap:0;margin-bottom:36px;border-bottom:1px solid var(--border);}
+.tab-btn{padding:10px 20px;font-size:13.5px;font-weight:600;color:var(--text-3);background:transparent;border:none;cursor:pointer;font-family:var(--f-body);border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .15s;}
+.tab-btn:hover{color:var(--text-2);}
+.tab-btn.active{color:var(--text);border-bottom-color:var(--text);}
+
+/* ── FILTER PILLS ── */
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;}
+.filter-pill{padding:7px 16px;border-radius:100px;font-size:12.5px;font-weight:500;background:var(--bg-3);border:1px solid var(--border);color:var(--text-2);cursor:pointer;font-family:var(--f-body);transition:all .15s;}
+.filter-pill:hover{border-color:var(--border-2);color:var(--text);}
+.filter-pill.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+
+/* ── SKILLS GRID ── */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px;}
+.skill-card{background:var(--bg-3);border:1px solid var(--border);border-radius:8px;padding:22px;transition:box-shadow .2s,border-color .2s;position:relative;display:flex;flex-direction:column;gap:0;}
+.skill-card:hover{box-shadow:0 6px 24px rgba(15,23,42,0.07);border-color:var(--border-2);}
+.skill-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;}
+.skill-icon{width:42px;height:42px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;background:var(--bg-2);}
+.skill-icon.blue{background:#eff6ff;}
+.skill-icon.green{background:#f0fdf4;}
+.skill-icon.amber{background:#fffbeb;}
+.skill-icon.rose{background:#fff1f2;}
+.skill-icon.purple{background:#f5f3ff;}
+.skill-badges{display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end;}
+.badge{font-size:10px;font-weight:700;letter-spacing:0.6px;text-transform:uppercase;padding:3px 9px;border-radius:4px;font-family:var(--f-body);}
+.badge-free{background:#f0fdf4;color:var(--green);border:1px solid #bbf7d0;}
+.badge-pro{background:var(--bg-2);color:var(--text-2);border:1px solid var(--border);}
+.skill-name{font-family:var(--f-display);font-size:15.5px;font-weight:700;letter-spacing:-0.2px;color:var(--text);margin-bottom:6px;}
+.skill-desc{font-size:13px;color:var(--text-2);line-height:1.65;margin-bottom:14px;font-weight:400;}
+.skill-learns{display:flex;align-items:flex-start;gap:8px;padding:10px 12px;background:var(--bg-2);border-radius:6px;margin-bottom:18px;}
+.skill-learns-label{font-size:11.5px;color:var(--text-3);font-weight:600;font-family:var(--f-body);}
+.skill-learns-text{font-size:12px;color:var(--text-2);font-weight:400;line-height:1.55;font-family:var(--f-body);}
+.skill-install{display:flex;align-items:center;justify-content:space-between;margin-top:auto;}
+.install-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;border-radius:7px;font-size:12.5px;font-weight:600;background:var(--accent);color:#fff;border:none;cursor:pointer;font-family:var(--f-body);transition:all .18s;}
+.install-btn:hover{background:var(--accent-2);transform:translateY(-1px);box-shadow:0 4px 12px rgba(15,23,42,0.2);}
+.install-btn.installed{background:#f0fdf4;color:var(--green);border:1px solid #bbf7d0;transform:none;box-shadow:none;}
+.install-btn.installed:hover{transform:none;box-shadow:none;}
+.skill-meta{font-size:11.5px;color:var(--text-3);font-weight:400;font-family:var(--f-body);}
+
+/* ── EMPTY STATE ── */
+.empty-state{text-align:center;padding:80px 20px;color:var(--text-3);grid-column:1/-1;}
+.empty-state h3{font-family:var(--f-display);font-size:18px;font-weight:700;margin-bottom:8px;color:var(--text-2);}
+.empty-state p{font-size:14px;}
+
+/* ── PRO BANNER ── */
+.pro-banner{background:#0f172a;border-radius:10px;padding:40px 48px;display:flex;align-items:center;justify-content:space-between;gap:32px;margin-top:52px;flex-wrap:wrap;}
+.pro-banner-text h3{font-family:var(--f-display);font-size:22px;font-weight:700;color:#fff;letter-spacing:-0.4px;margin-bottom:8px;}
+.pro-banner-text p{font-size:14px;color:#94a3b8;line-height:1.65;max-width:440px;}
+.pro-highlight{color:#e2e8f0;font-weight:600;}
+.pro-banner-action{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0;}
+.pro-banner-note{font-size:11.5px;color:#475569;}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--border);padding:32px 40px;margin-top:80px;}
+footer a{font-size:12px;color:var(--text-3);font-weight:400;font-family:var(--f-body);transition:color .15s;}
+footer a:hover{color:var(--text);}
+footer ul{list-style:none;}
+
+@media(max-width:768px){
+  nav{padding:0 20px;}
+  nav ul{display:none;}
+  .page-header{padding:96px 20px 44px;}
+  .browse-wrap{padding:0 20px 44px;}
+  .pro-banner{padding:28px 24px;}
+  .pro-banner-action{align-items:flex-start;}
+  footer{padding:24px 20px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div style="display:flex;align-items:center;">
+    <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+      <img src="/logo-32.png" alt="Plictor" style="width:24px;height:24px;"/>
+      <span style="font-family:var(--f-display);font-weight:700;font-size:15px;letter-spacing:-0.3px;color:var(--text);">Plictor</span>
+    </a>
+    <ul style="display:flex;align-items:center;gap:24px;list-style:none;margin-left:32px;">
+      <li><a href="/work" style="font-size:0.875rem;font-weight:500;color:var(--text-2);text-decoration:none;">Work</a></li>
+      <li><a href="/secure" style="font-size:0.875rem;font-weight:500;color:var(--text-2);text-decoration:none;">Secure</a></li>
+      <li><a href="/marketplace" style="font-size:0.875rem;font-weight:500;color:var(--text);text-decoration:none;font-weight:600;">Marketplace</a></li>
+      <li><a href="/bible" style="font-size:0.875rem;font-weight:500;color:var(--text-2);text-decoration:none;">Free Skills</a></li>
+      <li><a href="/pro" style="font-size:0.875rem;font-weight:500;color:var(--text-2);text-decoration:none;">Pro</a></li>
+      <li><a href="/download" style="font-size:0.875rem;font-weight:500;color:var(--text-2);text-decoration:none;">Download</a></li>
+    </ul>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <a href="https://app.plictor.com" class="btn btn-ghost">Sign in</a>
+    <a href="/work" class="btn btn-dark">Try free</a>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<div class="page-header">
+  <div class="page-eyebrow">Skills Marketplace</div>
+  <h1>Find your skill.<br/><em>Click. It works.</em></h1>
+  <p>No setup. No configuration. Every skill works immediately — and gets smarter about you every session.</p>
+</div>
+
+<!-- BROWSE -->
+<div class="browse-wrap">
+
+  <!-- TABS -->
+  <div class="browse-tabs">
+    <button class="tab-btn active" id="tab-role">Browse by role</button>
+    <button class="tab-btn" id="tab-task">Browse by task</button>
+  </div>
+
+  <!-- ROLE FILTERS -->
+  <div class="filter-row" id="role-filters">
+    <button class="filter-pill active" data-filter="all">All roles</button>
+    <button class="filter-pill" data-filter="trades">Trades</button>
+    <button class="filter-pill" data-filter="realestate">Real estate</button>
+    <button class="filter-pill" data-filter="freelancer">Freelancers</button>
+    <button class="filter-pill" data-filter="retail">Retail &amp; small biz</button>
+    <button class="filter-pill" data-filter="creator">Content creators</button>
+    <button class="filter-pill" data-filter="recruiter">Recruiters</button>
+    <button class="filter-pill" data-filter="general">General</button>
+  </div>
+
+  <!-- TASK FILTERS -->
+  <div class="filter-row" id="task-filters" style="display:none;">
+    <button class="filter-pill active" data-filter="all">All tasks</button>
+    <button class="filter-pill" data-filter="communication">Communication</button>
+    <button class="filter-pill" data-filter="research">Research</button>
+    <button class="filter-pill" data-filter="productivity">Productivity</button>
+    <button class="filter-pill" data-filter="memory">Memory &amp; voice</button>
+  </div>
+
+  <!-- SKILLS GRID -->
+  <div class="skills-grid" id="skills-grid"></div>
+
+  <!-- PRO BANNER -->
+  <div class="pro-banner">
+    <div class="pro-banner-text">
+      <h3>Skills that actually learn you</h3>
+      <p>Free skills work great — but they forget everything when you close the tab. <span class="pro-highlight">Plictor Pro unlocks persistent memory</span> across every skill. Your voice, your clients, your preferences — remembered forever.</p>
+    </div>
+    <div class="pro-banner-action">
+      <a href="/download" class="btn btn-dark" style="padding:13px 28px;font-size:14px;">Get Pro — $20/mo</a>
+      <span class="pro-banner-note">or $10 one-time for the base app</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <img src="/logo-32.png" style="width:20px;height:20px;" alt="Plictor"/>
+      <span style="font-family:var(--f-display);font-weight:700;font-size:14px;color:var(--text);">Plictor</span>
+    </div>
+    <ul style="display:flex;gap:24px;list-style:none;flex-wrap:wrap;">
+      <li><a href="/work">Work</a></li><li><a href="/secure">Secure</a></li>
+      <li><a href="/marketplace">Marketplace</a></li><li><a href="/bible">Free Skills</a></li>
+      <li><a href="/pro">Pro</a></li><li><a href="/download">Download</a></li>
+      <li><a href="/privacy">Privacy</a></li><li><a href="/terms">Terms</a></li>
+      <li><a href="mailto:hello@plictor.com">Contact</a></li>
+    </ul>
+    <span style="font-size:0.75rem;color:var(--text-3);">© 2026 Plictor. Built by G/C.</span>
+  </div>
+</footer>
+
+<script>
+// ── SKILL DATA (static, no user input) ──
+const SKILLS = [
+  {
+    id: 'email-drafter',
+    name: 'Email Drafter',
+    icon: '📧',
+    iconColor: 'blue',
+    desc: 'Drafts replies, follow-ups, and outreach emails in seconds. Write your style once — it matches your tone from then on.',
+    learns: 'Learns your voice and tone. After a few sessions it sounds exactly like you wrote it.',
+    tier: 'pro',
+    roles: ['general','freelancer','realestate','trades','retail','recruiter'],
+    tasks: ['communication','memory'],
+    url: '/work',
+  },
+  {
+    id: 'web-summarizer',
+    name: 'Web Summarizer',
+    icon: '🌐',
+    iconColor: 'purple',
+    desc: 'Paste any URL — article, product page, competitor site. Get a clean summary with the key points extracted instantly.',
+    learns: 'Remembers what topics you research most and surfaces relevant context automatically.',
+    tier: 'free',
+    roles: ['general','freelancer','realestate','recruiter','creator'],
+    tasks: ['research'],
+    url: '/work',
+  },
+  {
+    id: 'memory',
+    name: 'Memory',
+    icon: '🧠',
+    iconColor: 'purple',
+    desc: 'Tell Plictor anything — a client detail, a preference, a fact about your business. It remembers forever and uses it in every skill.',
+    learns: 'This is the memory layer itself. Every other skill becomes smarter when Memory is active.',
+    tier: 'pro',
+    roles: ['general','freelancer','realestate','trades','retail','recruiter','creator'],
+    tasks: ['memory'],
+    url: '/work',
+  },
+  {
+    id: 'invoice-followup',
+    name: 'Invoice Follow-up',
+    icon: '🧾',
+    iconColor: 'green',
+    desc: 'Sends polite, firm follow-up messages for unpaid invoices. Adjusts tone based on how overdue the payment is.',
+    learns: 'Learns how you prefer to handle late payers — soft reminders or direct escalation.',
+    tier: 'pro',
+    roles: ['trades','freelancer','retail','realestate'],
+    tasks: ['communication','productivity'],
+    url: '/work',
+  },
+  {
+    id: 'competitor-research',
+    name: 'Competitor Research',
+    icon: '🔍',
+    iconColor: 'amber',
+    desc: 'Give it a competitor name or URL. Get a breakdown of their positioning, pricing, and gaps you can exploit.',
+    learns: 'Remembers your market and what matters to your business — surfaces more relevant insights over time.',
+    tier: 'free',
+    roles: ['general','freelancer','retail','realestate','creator'],
+    tasks: ['research'],
+    url: '/work',
+  },
+  {
+    id: 'proposal-writer',
+    name: 'Proposal Writer',
+    icon: '📋',
+    iconColor: 'blue',
+    desc: 'Turns a few bullet points into a full client proposal. Tailored to your service, your pricing, your close style.',
+    learns: 'Learns your offer, your pricing, and how you like to present it. Gets more accurate every proposal.',
+    tier: 'pro',
+    roles: ['freelancer','realestate','trades','recruiter'],
+    tasks: ['communication','productivity'],
+    url: '/work',
+  },
+  {
+    id: 'listing-writer',
+    name: 'Listing Writer',
+    icon: '🏠',
+    iconColor: 'rose',
+    desc: 'Writes compelling property listings from your notes. Highlights the right features for the right buyer.',
+    learns: 'Learns your listing style and the language that resonates with your market.',
+    tier: 'pro',
+    roles: ['realestate'],
+    tasks: ['communication','memory'],
+    url: '/work',
+  },
+  {
+    id: 'job-description',
+    name: 'Job Description Writer',
+    icon: '👔',
+    iconColor: 'blue',
+    desc: 'Writes clear, compelling job descriptions from your role requirements. Attracts better candidates from the first post.',
+    learns: 'Learns your company tone and what makes a good candidate fit for your team.',
+    tier: 'pro',
+    roles: ['recruiter','general'],
+    tasks: ['communication','productivity'],
+    url: '/work',
+  },
+  {
+    id: 'content-ideas',
+    name: 'Content Ideas',
+    icon: '💡',
+    iconColor: 'amber',
+    desc: 'Generates content ideas tailored to your niche, your audience, and what has worked before.',
+    learns: 'Remembers your niche, your audience, and your past content — gets more targeted over time.',
+    tier: 'free',
+    roles: ['creator','general','retail'],
+    tasks: ['productivity','memory'],
+    url: '/work',
+  },
+];
+
+let currentTab = 'role';
+let currentFilter = 'all';
+const installed = new Set();
+
+// ── TAB SWITCHING ──
+document.getElementById('tab-role').addEventListener('click', function() {
+  currentTab = 'role';
+  currentFilter = 'all';
+  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  this.classList.add('active');
+  document.getElementById('role-filters').style.display = 'flex';
+  document.getElementById('task-filters').style.display = 'none';
+  resetActivePill('role-filters');
+  renderSkills();
+});
+
+document.getElementById('tab-task').addEventListener('click', function() {
+  currentTab = 'task';
+  currentFilter = 'all';
+  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+  this.classList.add('active');
+  document.getElementById('role-filters').style.display = 'none';
+  document.getElementById('task-filters').style.display = 'flex';
+  resetActivePill('task-filters');
+  renderSkills();
+});
+
+// ── FILTER PILLS ──
+function resetActivePill(rowId) {
+  var pills = document.querySelectorAll('#' + rowId + ' .filter-pill');
+  pills.forEach(function(p) { p.classList.remove('active'); });
+  if (pills.length) { pills[0].classList.add('active'); }
+}
+
+document.querySelectorAll('.filter-pill').forEach(function(pill) {
+  pill.addEventListener('click', function() {
+    currentFilter = this.getAttribute('data-filter');
+    var rowId = currentTab === 'role' ? 'role-filters' : 'task-filters';
+    document.querySelectorAll('#' + rowId + ' .filter-pill').forEach(function(p) { p.classList.remove('active'); });
+    this.classList.add('active');
+    renderSkills();
+  });
+});
+
+// ── RENDER ──
+function makeEl(tag, props) {
+  var el = document.createElement(tag);
+  if (props.className) { el.className = props.className; }
+  if (props.text !== undefined) { el.textContent = props.text; }
+  if (props.style) { el.style.cssText = props.style; }
+  if (props.type) { el.type = props.type; }
+  return el;
+}
+
+function buildSkillCard(s) {
+  var card = makeEl('div', { className: 'skill-card' });
+
+  // Top row
+  var top = makeEl('div', { className: 'skill-card-top' });
+  var icon = makeEl('div', { className: 'skill-icon ' + s.iconColor, text: s.icon });
+  var badges = makeEl('div', { className: 'skill-badges' });
+  var badge = makeEl('span', {
+    className: 'badge ' + (s.tier === 'pro' ? 'badge-pro' : 'badge-free'),
+    text: s.tier === 'pro' ? 'Pro' : 'Free',
+  });
+  badges.appendChild(badge);
+  top.appendChild(icon);
+  top.appendChild(badges);
+  card.appendChild(top);
+
+  // Name + desc
+  card.appendChild(makeEl('div', { className: 'skill-name', text: s.name }));
+  card.appendChild(makeEl('div', { className: 'skill-desc', text: s.desc }));
+
+  // Learns row
+  var learns = makeEl('div', { className: 'skill-learns' });
+  learns.appendChild(makeEl('span', { className: 'skill-learns-icon', text: '🧠' }));
+  var learnBody = makeEl('span', { className: 'skill-learns-text' });
+  var learnLabel = makeEl('strong', { className: 'skill-learns-label', text: 'What it learns: ' });
+  var learnText = document.createTextNode(s.learns);
+  learnBody.appendChild(learnLabel);
+  learnBody.appendChild(learnText);
+  learns.appendChild(learnBody);
+  card.appendChild(learns);
+
+  // Install row
+  var installRow = makeEl('div', { className: 'skill-install' });
+  var btn = makeEl('button', { className: 'install-btn', text: 'Install skill' });
+  btn.addEventListener('click', function() {
+    if (installed.has(s.id)) { return; }
+    installed.add(s.id);
+    btn.classList.add('installed');
+    btn.textContent = '';
+    btn.appendChild(document.createTextNode('\u2713 Installed'));
+    setTimeout(function() { window.location.href = s.url; }, 600);
+  });
+  if (installed.has(s.id)) {
+    btn.classList.add('installed');
+    btn.textContent = '\u2713 Installed';
+  }
+  installRow.appendChild(btn);
+  installRow.appendChild(makeEl('span', {
+    className: 'skill-meta',
+    text: s.tier === 'pro' ? 'Pro required' : 'Free',
+  }));
+  card.appendChild(installRow);
+
+  return card;
+}
+
+function renderSkills() {
+  var grid = document.getElementById('skills-grid');
+  // Clear existing children safely
+  while (grid.firstChild) { grid.removeChild(grid.firstChild); }
+
+  var filtered = SKILLS.filter(function(s) {
+    if (currentFilter === 'all') { return true; }
+    if (currentTab === 'role') { return s.roles.indexOf(currentFilter) !== -1; }
+    if (currentTab === 'task') { return s.tasks.indexOf(currentFilter) !== -1; }
+    return true;
+  });
+
+  if (!filtered.length) {
+    var empty = makeEl('div', { className: 'empty-state' });
+    empty.appendChild(makeEl('h3', { text: 'No skills yet for this filter' }));
+    empty.appendChild(makeEl('p', { text: 'More skills are being added weekly.' }));
+    grid.appendChild(empty);
+    return;
+  }
+
+  filtered.forEach(function(s) {
+    grid.appendChild(buildSkillCard(s));
+  });
+}
+
+// Init
+renderSkills();
+</script>
+
+</body>
+</html>
