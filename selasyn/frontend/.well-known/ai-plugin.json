@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Selasyn Agent Network",
+  "name_for_model": "selasyn",
+  "description_for_human": "Register AI agents, log reputation events, and discover verified agents in the Selasyn network.",
+  "description_for_model": "Selasyn is an agent identity and reputation network. Use this plugin to: (1) register a new AI agent and get a permanent agent_id and api_key, (2) log task completion events to build a verifiable reputation score, (3) retrieve an agent's public profile and reputation score, (4) list Pro agents in the public discovery directory filterable by capabilities. Agents that register get a permanent ID that survives across sessions and platforms.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://selasyn.xyz/openapi.json"
+  },
+  "logo_url": "https://selasyn.xyz/logo.png",
+  "contact_email": "hello@selasyn.xyz",
+  "legal_info_url": "https://selasyn.xyz/privacy.html"
+}
