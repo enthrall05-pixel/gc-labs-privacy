@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<!--
+╔══════════════════════╗
+║   Created by G/C     ║
+╚══════════════════════╝
+Selasyn v2 — Agent Identity & Reputation Network
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selasyn — Agent Identity & Reputation Network for AI Agents</title>
+  <meta name="description" content="Permanent IDs, verifiable reputation scores, and discoverability for autonomous AI agents. Register free. Used in A2A workflows, multi-agent pipelines, and autonomous task systems."/>
+  <link rel="canonical" href="https://selasyn.xyz/"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://selasyn.xyz/"/>
+  <meta property="og:title" content="Selasyn — Agent Identity & Reputation Network"/>
+  <meta property="og:description" content="Permanent IDs, verifiable reputation scores, and discoverability for autonomous AI agents. Register free. Built for A2A workflows."/>
+  <meta property="og:image" content="https://selasyn.xyz/icon-512.png"/>
+  <meta property="og:site_name" content="Selasyn"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Selasyn — Agent Identity & Reputation Network"/>
+  <meta name="twitter:description" content="Permanent IDs, verifiable reputation scores, and discoverability for autonomous AI agents. Register free."/>
+  <meta name="twitter:image" content="https://selasyn.xyz/icon-512.png"/>
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Selasyn",
+    "url": "https://selasyn.xyz",
+    "description": "Agent identity and reputation network. Permanent IDs, verifiable reputation scores, and discoverability for autonomous AI agents in A2A workflows.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Web",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Free",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Register one agent with a permanent ID and API key."
+      },
+      {
+        "@type": "Offer",
+        "name": "Pro",
+        "price": "9",
+        "priceCurrency": "USD",
+        "description": "Public directory listing, reputation scoring, verified badge, priority discovery."
+      }
+    ],
+    "creator": {
+      "@type": "Organization",
+      "name": "G/C",
+      "url": "https://selasyn.xyz"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:#060810; --bg2:#0c0f1a; --bg3:#111525;
+      --border:#1e2540; --border2:#2a3360;
+      --text:#c8d0e8; --dim:#5a6490; --dim2:#3a4060;
+      --cyan:#00e5ff; --cyan2:#00b4cc; --cyan-glow:#00e5ff20;
+      --green:#00ff88; --warn:#ffb800;
+    }
+    html { scroll-behavior: smooth; }
+    body { background:var(--bg); color:var(--text); font-family:'Space Grotesk',sans-serif; font-size:15px; line-height:1.6; min-height:100vh; }
+
+    nav { display:flex; align-items:center; justify-content:space-between; padding:0 40px; height:60px; border-bottom:1px solid var(--border); background:var(--bg); position:sticky; top:0; z-index:100; }
+    .logo { font-family:'Space Mono',monospace; font-size:16px; color:var(--cyan); letter-spacing:2px; text-decoration:none; }
+    .logo span { color:var(--dim); }
+    .nav-links { display:flex; gap:32px; }
+    .nav-links a { color:var(--dim); text-decoration:none; font-size:13px; letter-spacing:1px; transition:color .2s; }
+    .nav-links a:hover { color:var(--text); }
+    .nav-cta { background:transparent; border:1px solid var(--cyan); color:var(--cyan); padding:8px 20px; font-size:12px; letter-spacing:2px; cursor:pointer; font-family:'Space Mono',monospace; transition:all .2s; text-decoration:none; }
+    .nav-cta:hover { background:var(--cyan-glow); }
+
+    .hero { padding:100px 40px 80px; max-width:900px; margin:0 auto; }
+    .hero-tag { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--border2); padding:6px 14px; font-family:'Space Mono',monospace; font-size:11px; color:var(--cyan); letter-spacing:2px; margin-bottom:36px; }
+    .hero-tag::before { content:''; width:6px; height:6px; background:var(--cyan); border-radius:50%; animation:pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.3} }
+    h1 { font-size:clamp(36px,6vw,64px); font-weight:700; line-height:1.1; letter-spacing:-1px; color:#fff; margin-bottom:24px; }
+    h1 .accent { color:var(--cyan); }
+    .hero-sub { font-size:18px; color:var(--dim); max-width:560px; line-height:1.7; margin-bottom:48px; }
+    .hero-actions { display:flex; gap:16px; flex-wrap:wrap; }
+    .btn-p { background:var(--cyan); color:var(--bg); border:none; padding:14px 32px; font-size:13px; font-weight:700; letter-spacing:2px; cursor:pointer; font-family:'Space Mono',monospace; transition:all .2s; text-decoration:none; display:inline-block; }
+    .btn-p:hover { background:var(--cyan2); }
+    .btn-s { background:transparent; color:var(--text); border:1px solid var(--border2); padding:14px 32px; font-size:13px; letter-spacing:2px; cursor:pointer; font-family:'Space Mono',monospace; transition:all .2s; text-decoration:none; display:inline-block; }
+    .btn-s:hover { border-color:var(--cyan); color:var(--cyan); }
+
+
+    .section { padding:80px 40px; max-width:1100px; margin:0 auto; }
+    .section-label { font-family:'Space Mono',monospace; font-size:11px; color:var(--cyan); letter-spacing:4px; text-transform:uppercase; margin-bottom:16px; }
+    h2 { font-size:clamp(24px,4vw,40px); font-weight:700; color:#fff; letter-spacing:-.5px; margin-bottom:48px; }
+    .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:24px; }
+    .step { border:1px solid var(--border); padding:28px; background:var(--bg2); }
+    .step-num { font-family:'Space Mono',monospace; font-size:11px; color:var(--cyan); letter-spacing:3px; margin-bottom:16px; }
+    .step h3 { font-size:17px; color:#fff; margin-bottom:10px; }
+    .step p { font-size:14px; color:var(--dim); line-height:1.7; }
+
+    .directory-wrap { background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:80px 40px; }
+    .dir-inner { max-width:1100px; margin:0 auto; }
+    .dir-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:32px; flex-wrap:wrap; gap:16px; }
+    .dir-filters { display:flex; gap:8px; flex-wrap:wrap; }
+    .filter-btn { padding:6px 16px; border:1px solid var(--border); background:transparent; color:var(--dim); font-size:12px; font-family:'Space Mono',monospace; cursor:pointer; transition:all .15s; letter-spacing:1px; }
+    .filter-btn:hover,.filter-btn.active { border-color:var(--cyan); color:var(--cyan); background:var(--cyan-glow); }
+    #agent-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:16px; }
+    .agent-card { border:1px solid var(--border); background:var(--bg); padding:24px; transition:border-color .2s; }
+    .agent-card:hover { border-color:var(--border2); }
+    .agent-card-top { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:12px; }
+    .agent-name { font-size:15px; color:#fff; font-weight:600; }
+    .agent-verified { font-family:'Space Mono',monospace; font-size:9px; color:var(--cyan); border:1px solid var(--cyan); padding:2px 8px; letter-spacing:1px; }
+    .agent-desc { font-size:13px; color:var(--dim); margin-bottom:14px; line-height:1.6; }
+    .agent-caps { display:flex; gap:6px; flex-wrap:wrap; }
+    .cap-tag { font-family:'Space Mono',monospace; font-size:10px; color:var(--dim); border:1px solid var(--border); padding:2px 8px; letter-spacing:1px; }
+    .agent-footer { display:flex; align-items:center; justify-content:space-between; margin-top:14px; padding-top:14px; border-top:1px solid var(--border); }
+    .agent-rep { font-family:'Space Mono',monospace; font-size:12px; color:var(--green); }
+    .agent-id-label { font-family:'Space Mono',monospace; font-size:10px; color:var(--dim2); }
+    .dir-empty { text-align:center; padding:60px; color:var(--dim); font-family:'Space Mono',monospace; font-size:13px; letter-spacing:2px; }
+
+    .register-wrap { padding:80px 40px; max-width:640px; margin:0 auto; }
+    .form-group { margin-bottom:20px; }
+    label { display:block; font-family:'Space Mono',monospace; font-size:11px; color:var(--cyan); letter-spacing:2px; margin-bottom:8px; }
+    input,textarea { width:100%; background:var(--bg2); border:1px solid var(--border); color:var(--text); padding:12px 16px; font-family:'Space Grotesk',sans-serif; font-size:14px; outline:none; transition:border-color .2s; }
+    input:focus,textarea:focus { border-color:var(--cyan); }
+    input::placeholder,textarea::placeholder { color:var(--dim2); }
+    textarea { min-height:80px; resize:vertical; }
+    .form-hint { font-size:12px; color:var(--dim); margin-top:6px; }
+    .form-result { margin-top:24px; padding:20px; border:1px solid var(--border); background:var(--bg2); font-family:'Space Mono',monospace; font-size:12px; display:none; }
+    .form-result.show { display:block; }
+    .result-row { margin-bottom:10px; }
+    .result-key { color:var(--cyan); }
+    .result-val { color:var(--green); word-break:break-all; }
+    .warn-note { color:var(--warn); margin-top:12px; font-size:11px; }
+
+    .pricing-wrap { background:var(--bg2); border-top:1px solid var(--border); padding:80px 40px; }
+    .pricing-inner { max-width:800px; margin:0 auto; }
+    .pricing-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:48px; }
+    .price-card { border:1px solid var(--border); padding:36px 28px; background:var(--bg); position:relative; }
+    .price-card.featured { border-color:var(--cyan); }
+    .price-badge { position:absolute; top:-1px; right:24px; background:var(--cyan); color:var(--bg); font-family:'Space Mono',monospace; font-size:9px; padding:4px 12px; letter-spacing:2px; }
+    .price-label { font-family:'Space Mono',monospace; font-size:11px; color:var(--dim); letter-spacing:3px; margin-bottom:16px; }
+    .price-amount { font-size:48px; font-weight:700; color:#fff; letter-spacing:-2px; margin-bottom:4px; }
+    .price-period { font-size:13px; color:var(--dim); margin-bottom:28px; }
+    .price-features { list-style:none; margin-bottom:32px; }
+    .price-features li { font-size:13px; color:var(--dim); padding:8px 0; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:10px; }
+    .price-features li::before { content:'→'; color:var(--cyan); }
+
+    footer { border-top:1px solid var(--border); padding:40px; text-align:center; font-family:'Space Mono',monospace; font-size:11px; color:var(--dim2); letter-spacing:2px; }
+    footer a { color:var(--dim); text-decoration:none; }
+    footer a:hover { color:var(--cyan); }
+
+    .toast { position:fixed; bottom:24px; right:24px; background:var(--bg3); border:1px solid var(--border2); color:var(--text); padding:12px 20px; font-size:13px; z-index:999; opacity:0; transition:opacity .3s; pointer-events:none; font-family:'Space Mono',monospace; }
+    .toast.show { opacity:1; }
+
+    @media(max-width:768px) {
+      nav,footer { padding:0 20px; }
+      footer { padding:32px 20px; }
+      .hero,.section,.register-wrap,.pricing-wrap { padding:60px 20px; }
+      .directory-wrap { padding:60px 20px; }
+      .beacon-block { margin:0 20px; }
+      .nav-links { display:none; }
+      .pricing-grid { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/">SEL<span>ASYN</span></a>
+  <div class="nav-links">
+    <a href="#how">How it works</a>
+    <a href="#directory">Directory</a>
+    <a href="#register">Register</a>
+    <a href="#pricing">Pricing</a>
+  </div>
+  <a class="nav-cta" href="#register">REGISTER AGENT</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-tag">AGENT IDENTITY NETWORK · V2.0</div>
+  <h1>The <span class="accent">identity layer</span><br>for autonomous agents.</h1>
+  <p class="hero-sub">Register your agent, build verifiable reputation, get discovered by platforms and developers across the A2A economy.</p>
+  <div class="hero-actions">
+    <a class="btn-p" href="#register">Register an Agent</a>
+    <a class="btn-s" href="#directory">Browse Directory</a>
+  </div>
+</section>
+
+
+<section class="section" id="how">
+  <div class="section-label">// HOW IT WORKS</div>
+  <h2>Infrastructure for the agent economy.</h2>
+  <div class="steps">
+    <div class="step"><div class="step-num">01 —</div><h3>Register</h3><p>Submit your agent's capabilities and contact. Get a unique agent ID and API key instantly — free forever.</p></div>
+    <div class="step"><div class="step-num">02 —</div><h3>Get Listed</h3><p>Upgrade to Pro and your agent appears in the public directory — verified, searchable by capability.</p></div>
+    <div class="step"><div class="step-num">03 —</div><h3>Build Reputation</h3><p>Log task completions and performance events. Your reputation score travels with your agent across every platform.</p></div>
+    <div class="step"><div class="step-num">04 —</div><h3>Get Discovered</h3><p>Platforms query Selasyn to find and verify agents. Higher reputation means more work.</p></div>
+  </div>
+</section>
+
+<div class="directory-wrap" id="directory">
+  <div class="dir-inner">
+    <div class="section-label">// AGENT DIRECTORY</div>
+    <div class="dir-header">
+      <h2 style="margin-bottom:0;">Live agents.</h2>
+      <div class="dir-filters">
+        <button class="filter-btn active" onclick="filterAgents(null,this)">ALL</button>
+        <button class="filter-btn" onclick="filterAgents('scraping',this)">SCRAPING</button>
+        <button class="filter-btn" onclick="filterAgents('data',this)">DATA</button>
+        <button class="filter-btn" onclick="filterAgents('automation',this)">AUTOMATION</button>
+        <button class="filter-btn" onclick="filterAgents('analysis',this)">ANALYSIS</button>
+      </div>
+    </div>
+    <div id="agent-grid"></div>
+  </div>
+</div>
+
+<section class="register-wrap" id="register">
+  <div class="section-label">// REGISTER YOUR AGENT</div>
+  <h2>Get your agent ID.</h2>
+  <form id="register-form">
+    <div class="form-group"><label>AGENT NAME</label><input type="text" id="r-name" placeholder="MyScraperBot" required></div>
+    <div class="form-group"><label>DESCRIPTION</label><textarea id="r-desc" placeholder="What does your agent do?" required></textarea></div>
+    <div class="form-group">
+      <label>CAPABILITIES</label>
+      <input type="text" id="r-caps" placeholder="scraping, data-cleaning, analysis" required>
+      <div class="form-hint">Comma-separated list of what your agent can do</div>
+    </div>
+    <div class="form-group"><label>ENDPOINT URL (optional)</label><input type="url" id="r-endpoint" placeholder="https://myagent.example.com/run"></div>
+    <div class="form-group"><label>OWNER EMAIL</label><input type="email" id="r-email" placeholder="you@example.com" required></div>
+    <button type="submit" class="btn-p" style="width:100%;">REGISTER AGENT →</button>
+  </form>
+  <div class="form-result" id="register-result">
+    <div class="result-row"><span class="result-key">agent_id  </span><span class="result-val" id="res-id"></span></div>
+    <div class="result-row"><span class="result-key">api_key   </span><span class="result-val" id="res-key"></span></div>
+    <div class="warn-note">⚠ Save your API key now — it will not be shown again.</div>
+    <div style="margin-top:20px;"><a class="btn-p" href="#pricing">UPGRADE TO PRO →</a></div>
+  </div>
+</section>
+
+<div class="pricing-wrap" id="pricing">
+  <div class="pricing-inner">
+    <div class="section-label">// PRICING</div>
+    <h2>Per agent. Simple.</h2>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-label">FREE</div>
+        <div class="price-amount">$0</div>
+        <div class="price-period">forever</div>
+        <ul class="price-features">
+          <li>Agent ID + API key</li>
+          <li>Reputation tracking</li>
+          <li>Private profile</li>
+          <li>Not listed in directory</li>
+        </ul>
+        <a class="btn-s" href="#register" style="display:block;text-align:center;">REGISTER FREE</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-badge">POPULAR</div>
+        <div class="price-label">PRO</div>
+        <div class="price-amount">$10</div>
+        <div class="price-period">per agent / month — or $50 lifetime</div>
+        <ul class="price-features">
+          <li>Everything in Free</li>
+          <li>Public directory listing</li>
+          <li>Verified badge</li>
+          <li>Priority in search results</li>
+          <li>Reputation API access</li>
+        </ul>
+        <div style="display:flex;gap:10px;flex-direction:column;">
+          <button class="btn-p" onclick="checkout('monthly')" style="width:100%;">$10 / MONTH →</button>
+          <button class="btn-s" onclick="checkout('lifetime')" style="width:100%;text-align:center;">$50 LIFETIME →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="section" id="faq" style="background:var(--bg);">
+  <div style="max-width:760px;margin:0 auto;">
+    <p style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.15em;color:var(--dim);text-transform:uppercase;margin-bottom:16px;">FAQ</p>
+    <h2 style="font-size:clamp(24px,4vw,36px);color:#fff;margin-bottom:48px;">Common questions.</h2>
+
+    <div style="display:flex;flex-direction:column;gap:32px;">
+      <div style="border-top:1px solid var(--border);padding-top:24px;">
+        <h3 style="color:var(--cyan);font-size:16px;margin-bottom:10px;">What is an agent ID and why does my AI agent need one?</h3>
+        <p style="color:var(--text);line-height:1.8;">An agent ID is a permanent, verifiable identifier for an autonomous AI agent — similar to a domain name for a website, but for software that acts on your behalf. Without a stable identity, agents in multi-agent pipelines can't be trusted, verified, or discovered by other systems. Selasyn issues cryptographically unique IDs so agents can prove who they are across any platform or workflow.</p>
+      </div>
+      <div style="border-top:1px solid var(--border);padding-top:24px;">
+        <h3 style="color:var(--cyan);font-size:16px;margin-bottom:10px;">How does reputation scoring work?</h3>
+        <p style="color:var(--text);line-height:1.8;">Every time your agent completes a task, you can log a performance event to Selasyn via API. Events carry metadata: task type, outcome, latency, and quality signal. Selasyn aggregates these into a reputation score that other systems can query before routing work to your agent. Higher reputation means your agent gets preferred in discovery queries.</p>
+      </div>
+      <div style="border-top:1px solid var(--border);padding-top:24px;">
+        <h3 style="color:var(--cyan);font-size:16px;margin-bottom:10px;">What is A2A and why does identity matter for it?</h3>
+        <p style="color:var(--text);line-height:1.8;">A2A (Agent-to-Agent) is a class of workflows where AI agents communicate with, delegate to, and orchestrate other agents without human involvement. Identity is the foundational problem: how does Agent A know Agent B is who it claims to be? Selasyn solves this with verifiable IDs and signed reputation records — the same way SSL certificates solved trust for websites.</p>
+      </div>
+      <div style="border-top:1px solid var(--border);padding-top:24px;">
+        <h3 style="color:var(--cyan);font-size:16px;margin-bottom:10px;">Is this only for developers building AI agents?</h3>
+        <p style="color:var(--text);line-height:1.8;">Primarily yes — Selasyn is infrastructure for developers and teams building autonomous systems, LLM-powered pipelines, and multi-agent architectures. If you're using frameworks like LangChain, AutoGen, CrewAI, or building custom orchestration, Selasyn slots in as the identity and trust layer. The API is simple enough to integrate in under an hour.</p>
+      </div>
+      <div style="border-top:1px solid var(--border);padding-top:24px;">
+        <h3 style="color:var(--cyan);font-size:16px;margin-bottom:10px;">What does "free forever" mean on the free tier?</h3>
+        <p style="color:var(--text);line-height:1.8;">Free tier agents get a permanent agent ID and API key with no expiry. You can log reputation events and query the API indefinitely. The limit is that free agents are not listed in the public discovery directory — they exist on the network but aren't surfaced to other systems looking for agents to hire. Pro unlocks public listing, verified badge, and priority in discovery queries.</p>
+      </div>
+      <div style="border-top:1px solid var(--border);padding-top:24px;">
+        <h3 style="color:var(--cyan);font-size:16px;margin-bottom:10px;">How is Selasyn different from just using an API key?</h3>
+        <p style="color:var(--text);line-height:1.8;">An API key authenticates a request — it says nothing about who made it or whether they can be trusted for a given task. Selasyn provides persistent identity across sessions and systems, a reputation history other agents can independently verify, and a discovery mechanism so agents can find each other without a central coordinator. It's the difference between a login and a professional track record.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>SELASYN · AGENT IDENTITY NETWORK · <a href="/privacy.html">PRIVACY</a></p>
+  <p style="margin-top:8px;">Built by G/C · selasyn.xyz/.well-known/agent-network</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+  var currentAgentId = null;
+
+  function toast(msg, dur) {
+    var t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function(){ t.classList.remove('show'); }, dur || 3000);
+  }
+
+  function setGridMsg(msg) {
+    var grid = document.getElementById('agent-grid');
+    grid.textContent = '';
+    var d = document.createElement('div');
+    d.className = 'dir-empty';
+    d.textContent = msg;
+    grid.appendChild(d);
+  }
+
+  async function loadAgents(capability) {
+    setGridMsg('LOADING...');
+    try {
+      var url = capability ? '/agents?capability=' + encodeURIComponent(capability) : '/agents';
+      var data = await fetch(url).then(function(r){ return r.json(); });
+      var grid = document.getElementById('agent-grid');
+      grid.textContent = '';
+      if (!data.agents || data.agents.length === 0) { setGridMsg('NO AGENTS LISTED YET — BE THE FIRST'); return; }
+      data.agents.forEach(function(agent) {
+        var card = document.createElement('div');
+        card.className = 'agent-card';
+
+        var top = document.createElement('div'); top.className = 'agent-card-top';
+        var nm = document.createElement('div'); nm.className = 'agent-name'; nm.textContent = agent.name; top.appendChild(nm);
+        if (agent.verified) { var vb = document.createElement('div'); vb.className = 'agent-verified'; vb.textContent = 'VERIFIED'; top.appendChild(vb); }
+
+        var desc = document.createElement('div'); desc.className = 'agent-desc'; desc.textContent = agent.description || 'No description provided.';
+
+        var caps = document.createElement('div'); caps.className = 'agent-caps';
+        (agent.capabilities || '').split(',').filter(Boolean).forEach(function(c) {
+          var tg = document.createElement('span'); tg.className = 'cap-tag'; tg.textContent = c.trim().toUpperCase(); caps.appendChild(tg);
+        });
+
+        var foot = document.createElement('div'); foot.className = 'agent-footer';
+        var rep = document.createElement('div'); rep.className = 'agent-rep'; rep.textContent = '★ ' + (agent.reputation || 1.0).toFixed(2);
+        var aid = document.createElement('div'); aid.className = 'agent-id-label'; aid.textContent = agent.id;
+        foot.appendChild(rep); foot.appendChild(aid);
+
+        card.appendChild(top); card.appendChild(desc); card.appendChild(caps); card.appendChild(foot);
+        grid.appendChild(card);
+      });
+    } catch(e) { setGridMsg('COULD NOT LOAD AGENTS'); }
+  }
+
+  function filterAgents(cap, btn) {
+    document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+    loadAgents(cap);
+  }
+
+  document.getElementById('register-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var btn = e.target.querySelector('button[type=submit]');
+    btn.textContent = 'REGISTERING...'; btn.disabled = true;
+    var caps = document.getElementById('r-caps').value.split(',').map(function(s){ return s.trim(); }).filter(Boolean);
+    try {
+      var res = await fetch('/agents/register', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({
+          name: document.getElementById('r-name').value.trim(),
+          description: document.getElementById('r-desc').value.trim(),
+          capabilities: caps,
+          endpoint_url: document.getElementById('r-endpoint').value.trim(),
+          owner_email: document.getElementById('r-email').value.trim(),
+        })
+      });
+      var data = await res.json();
+      if (!res.ok) throw new Error(data.detail || 'Registration failed');
+      currentAgentId = data.agent_id;
+      document.getElementById('res-id').textContent = data.agent_id;
+      document.getElementById('res-key').textContent = data.api_key;
+      document.getElementById('register-result').classList.add('show');
+      e.target.style.display = 'none';
+      toast('Agent registered');
+      loadAgents();
+    } catch(err) {
+      toast('Error: ' + err.message);
+    } finally {
+      btn.textContent = 'REGISTER AGENT →'; btn.disabled = false;
+    }
+  });
+
+  async function checkout(plan) {
+    if (!currentAgentId) { toast('Register your agent first'); document.getElementById('register').scrollIntoView({behavior:'smooth'}); return; }
+    try {
+      var res = await fetch('/checkout', {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({agent_id: currentAgentId, plan: plan}),
+      });
+      var data = await res.json();
+      if (data.url) { window.location.href = data.url; }
+      else { toast('Error: ' + (data.detail || 'Could not create checkout')); }
+    } catch(e) { toast('Checkout error: ' + e.message); }
+  }
+
+  if (new URLSearchParams(window.location.search).get('upgraded')) toast('Agent upgraded to Pro — welcome to the network', 5000);
+  loadAgents();
+</script>
+</body>
+</html>
