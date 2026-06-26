@@ -24,8 +24,58 @@ Grid broken by full-bleed chat window and offset section titles.
   </script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Plictor — The AI that actually knows you</title>
-<meta name="description" content="Plictor remembers how you work, how you write, and what you care about. Local AI agent desktop app — bring your API key, nothing leaves your machine."/>
+<title>Plictor — Local AI Agent Desktop App That Remembers You</title>
+<meta name="description" content="Plictor is a local AI agent desktop app that remembers how you work, how you write, and what you care about. Bring your own API key. Nothing leaves your machine. Free download."/>
+<link rel="canonical" href="https://plictor.com/"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://plictor.com/"/>
+<meta property="og:title" content="Plictor — Local AI Agent Desktop App That Remembers You"/>
+<meta property="og:description" content="Plictor remembers how you work, how you write, and what you care about. Local AI agent — bring your API key, nothing leaves your machine. Free download."/>
+<meta property="og:image" content="https://plictor.com/og-image.png"/>
+<meta property="og:site_name" content="Plictor"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@getplictor"/>
+<meta name="twitter:title" content="Plictor — Local AI Agent That Remembers You"/>
+<meta name="twitter:description" content="Local AI agent desktop app. Persistent memory, private by default. Bring your API key, nothing leaves your machine. Free."/>
+<meta name="twitter:image" content="https://plictor.com/og-image.png"/>
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Plictor",
+  "url": "https://plictor.com",
+  "description": "Local AI agent desktop app with persistent memory. Remembers how you work, how you write, and what you care about. Bring your own API key — nothing leaves your machine.",
+  "applicationCategory": "ProductivityApplication",
+  "operatingSystem": ["Windows", "macOS", "Linux"],
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Free",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Full desktop app, session memory, local AI agent."
+    },
+    {
+      "@type": "Offer",
+      "name": "Pro",
+      "price": "79",
+      "priceCurrency": "USD",
+      "description": "Persistent SQLite memory across sessions, Pro features, lifetime license."
+    }
+  ],
+  "creator": {
+    "@type": "Organization",
+    "name": "G/C",
+    "url": "https://plictor.com"
+  }
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
@@ -552,14 +602,14 @@ footer{border-top:1px solid var(--border);padding:var(--sp-8);}
       Other AI tools start from zero every time. Plictor builds a memory of how you work — your voice, your clients, your style. Bring your API key. Nothing leaves your machine.
     </p>
     <div class="hero-actions a3">
-      <a href="/work" class="btn btn-dark btn-lg">Try free in browser</a>
-      <a href="/download" class="btn btn-ghost btn-lg">Download $10 →</a>
+      <a href="/download" class="btn btn-dark btn-lg">Download Free</a>
+      <a href="/pro" class="btn btn-ghost btn-lg">Go Pro →</a>
     </div>
     <div class="trust-row a3">
       <span class="trust-item">Bring your own API key</span>
       <span class="trust-item">Nothing leaves your machine</span>
       <span class="trust-item">11 AI providers</span>
-      <span class="trust-item">One-time $10</span>
+      <span class="trust-item">Free forever</span>
     </div>
   </div>
 
@@ -651,7 +701,7 @@ footer{border-top:1px solid var(--border);padding:var(--sp-8);}
     <div class="bento">
 
       <div class="bcard">
-        <span class="badge b-new">v1.1.3 — just shipped</span>
+        <span class="badge b-new">v1.1.6 — free tier + SQLite memory</span>
         <span class="bcard-icon">⚡</span>
         <h3>Plictor Work</h3>
         <p>Local AI agent that learns how you operate. Chat, delegate tasks, run skills, automate your workflow. Bring your own API key — no subscription to AI providers.</p>
@@ -663,12 +713,12 @@ footer{border-top:1px solid var(--border);padding:var(--sp-8);}
           <li>Claude · GPT · Gemini · Grok · Ollama + more</li>
         </ul>
         <div style="display:flex;gap:var(--sp-4);flex-wrap:wrap;align-items:center;">
-          <a href="/work" class="bcard-link">
-            Try free in browser
+          <a href="/download" class="bcard-link">
+            Download Free
             <svg viewBox="0 0 14 14"><line x1="2" y1="7" x2="12" y2="7"/><polyline points="8,3 12,7 8,11"/></svg>
           </a>
-          <a href="/download" class="bcard-link muted">
-            Download $10
+          <a href="/pro" class="bcard-link muted">
+            Go Pro
             <svg viewBox="0 0 14 14"><line x1="2" y1="7" x2="12" y2="7"/><polyline points="8,3 12,7 8,11"/></svg>
           </a>
         </div>
@@ -841,10 +891,10 @@ footer{border-top:1px solid var(--border);padding:var(--sp-8);}
 <!-- CTA -->
 <section class="cta-wrap">
   <h2>Start in 60 seconds.<br/><span class="hl">No setup. No forgetting.</span></h2>
-  <p>Try the browser version free. No card, no account. When you're ready — $10 gets you the app forever.</p>
+  <p>Free to download. No card, no account. Upgrade to Pro when memory matters.</p>
   <div class="cta-btns">
-    <a href="/work" class="btn btn-dark btn-lg">Try Work free in browser</a>
-    <a href="/download" class="btn btn-ghost btn-lg">Download desktop app →</a>
+    <a href="/download" class="btn btn-dark btn-lg">Download Free</a>
+    <a href="/pro" class="btn btn-ghost btn-lg">Go Pro →</a>
   </div>
 </section>
 

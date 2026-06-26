@@ -14,7 +14,8 @@
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Download Plictor Work</title>
+  <title>Download Plictor Work — Free AI Assistant for Your Desktop</title>
+  <meta name="description" content="Download Plictor Work free. AI assistant for your desktop — draft emails, answer questions, research anything. No monthly fee. Works with ChatGPT and more."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
@@ -51,103 +52,39 @@
     .btn-ghost:hover { color: var(--text); border-color: var(--text-2); }
     .btn-dark { background: var(--accent); color: #fff; font-weight: 700; }
     .btn-dark:hover { background: var(--accent-2); transform: translateY(-1px); }
-    .btn-lg { padding: 13px 28px; font-size: 1rem; }
 
-    .page { max-width: 640px; margin: 0 auto; padding: 100px 24px 80px; text-align: center; }
-
-    .version-badge {
+    /* ── Hero ── */
+    .hero {
+      max-width: 680px; margin: 0 auto; padding: 112px 24px 56px;
+      text-align: center;
+    }
+    .badge {
       display: inline-flex; align-items: center; gap: 6px;
       background: var(--bg-2); border: 1px solid var(--border); border-radius: 3px;
-      padding: 4px 12px; font-size: 11px; font-weight: 600; font-family: var(--f-body);
+      padding: 4px 12px; font-size: 11px; font-weight: 600;
       color: var(--text-2); letter-spacing: 0.04em; text-transform: uppercase;
-      margin-bottom: 28px;
-    }
-    .version-badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
-
-    h1 {
-      font-family: var(--f-display); font-size: clamp(32px, 5vw, 48px);
-      font-weight: 800; letter-spacing: -0.03em; line-height: 1.05;
-      color: var(--text); margin-bottom: 16px;
-    }
-    .sub {
-      font-size: 1rem; color: var(--text-2); line-height: 1.65;
-      margin-bottom: 48px; font-weight: 400;
-    }
-
-    .feat-row {
-      display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;
-      margin-bottom: 48px;
-    }
-    .feat-item {
-      display: flex; align-items: center; gap: 6px;
-      font-size: 0.8125rem; color: var(--text-2); font-weight: 500;
-    }
-    .feat-item::before { content: ''; display: block; width: 5px; height: 5px; border-radius: 50%; background: var(--accent-3); flex-shrink: 0; }
-
-    .download-card {
-      background: var(--bg-3); border: 1px solid var(--border);
-      border-radius: 2px; padding: 40px;
-      margin-bottom: 40px;
-    }
-
-    /* Verifying state */
-    .verifying-section { display: none; text-align: center; padding: 20px 0; }
-    .spinner {
-      width: 28px; height: 28px;
-      border: 2px solid var(--border); border-top-color: var(--accent-3);
-      border-radius: 50%; animation: spin 0.7s linear infinite;
-      margin: 0 auto 16px;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    .verifying-text { font-size: 0.875rem; color: var(--text-2); font-family: var(--f-body); }
-
-    /* Error state */
-    .error-section {
-      display: none; background: #fef2f2; border: 1px solid #fecaca;
-      border-radius: 2px; padding: 20px; color: #991b1b;
-      font-size: 0.875rem; margin-bottom: 20px; text-align: left;
-    }
-
-    /* Buy state */
-    .buy-section { display: block; }
-    .price-display { margin-bottom: 28px; }
-    .price-amount {
-      font-family: var(--f-display); font-size: 40px; font-weight: 800;
-      letter-spacing: -0.03em; color: var(--text); line-height: 1;
-      margin-bottom: 4px;
-    }
-    .price-amount span { font-size: 15px; font-weight: 500; color: var(--text-3); font-family: var(--f-body); }
-    .price-note { font-size: 0.8125rem; color: var(--text-3); }
-
-    .buy-btn {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      width: 100%; padding: 15px 24px; border-radius: 4px; border: none;
-      cursor: pointer; background: var(--accent); color: #fff;
-      font-family: var(--f-body); font-size: 0.9375rem; font-weight: 700;
-      text-decoration: none; transition: all 0.2s; margin-bottom: 12px;
-    }
-    .buy-btn:hover { background: var(--accent-2); transform: translateY(-1px); }
-
-    .buy-meta { font-size: 0.75rem; color: var(--text-3); margin-bottom: 28px; }
-
-    .buy-includes {
-      margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border);
-      font-size: 0.8125rem; color: var(--text-2); line-height: 2.2; text-align: left;
-    }
-    .buy-includes a { color: var(--accent-3); text-decoration: underline; text-underline-offset: 2px; }
-
-    /* Download state */
-    .download-section { display: none; }
-    .success-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0;
-      border-radius: 3px; padding: 6px 14px; font-size: 0.8125rem; font-weight: 600;
       margin-bottom: 24px;
     }
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
+    h1 {
+      font-family: var(--f-display); font-size: clamp(34px, 5.5vw, 54px);
+      font-weight: 800; letter-spacing: -0.035em; line-height: 1.05;
+      color: var(--text); margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-size: 1.0625rem; color: var(--text-2); line-height: 1.7;
+      margin-bottom: 40px; font-weight: 400; max-width: 520px; margin-left: auto; margin-right: auto;
+    }
 
+    /* ── Download card ── */
+    .download-wrap { max-width: 480px; margin: 0 auto 48px; }
+    .download-card {
+      background: var(--bg-3); border: 1px solid var(--border);
+      border-radius: 2px; padding: 32px;
+    }
     .os-tabs {
       display: flex; border: 1px solid var(--border); border-radius: 3px;
-      overflow: hidden; margin-bottom: 24px;
+      overflow: hidden; margin-bottom: 20px;
     }
     .os-tab {
       flex: 1; padding: 10px; border: none; border-right: 1px solid var(--border);
@@ -157,21 +94,25 @@
     .os-tab:last-child { border-right: none; }
     .os-tab.active { background: var(--bg-3); color: var(--text); }
     .os-tab:hover:not(.active) { background: var(--bg-3); color: var(--text); }
-
     .download-btn {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      width: 100%; padding: 15px 24px; border-radius: 4px; border: none;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; padding: 17px 24px; border-radius: 4px; border: none;
       cursor: pointer; background: var(--accent); color: #fff;
-      font-family: var(--f-body); font-size: 0.9375rem; font-weight: 700;
+      font-family: var(--f-body); font-size: 1rem; font-weight: 700;
       text-decoration: none; transition: all 0.2s; margin-bottom: 12px;
     }
     .download-btn:hover { background: var(--accent-2); transform: translateY(-1px); }
+    .download-meta { font-size: 0.75rem; color: var(--text-3); text-align: center; margin-bottom: 20px; }
+    .free-includes {
+      border-top: 1px solid var(--border); padding-top: 18px;
+      font-size: 0.8125rem; color: var(--text-2); line-height: 2.1;
+    }
+    .free-includes .check { color: var(--green); font-weight: 700; margin-right: 4px; }
 
-    .download-meta { font-size: 0.75rem; color: var(--text-3); }
-    .redownload-note { margin-top: 16px; font-size: 0.75rem; color: var(--text-3); }
-
+    /* ── Trust row ── */
     .trust-row {
-      display: flex; justify-content: center; gap: 28px; flex-wrap: wrap;
+      display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;
+      margin-bottom: 72px;
     }
     .trust-item {
       display: flex; align-items: center; gap: 6px;
@@ -179,10 +120,96 @@
     }
     .trust-check { color: var(--green); font-weight: 700; }
 
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem;
+    /* ── Use cases ── */
+    .section { max-width: 800px; margin: 0 auto; padding: 0 24px 72px; }
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--text-3); margin-bottom: 12px;
     }
+    .section-title {
+      font-family: var(--f-display); font-size: clamp(24px, 3.5vw, 34px);
+      font-weight: 800; letter-spacing: -0.025em; color: var(--text);
+      margin-bottom: 12px;
+    }
+    .section-sub {
+      font-size: 0.9375rem; color: var(--text-2); line-height: 1.65; margin-bottom: 40px;
+    }
+    .use-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px;
+    }
+    .use-card {
+      background: var(--bg-3); border: 1px solid var(--border); border-radius: 2px;
+      padding: 20px 22px;
+    }
+    .use-card-icon { font-size: 22px; margin-bottom: 10px; }
+    .use-card-title { font-weight: 700; font-size: 0.875rem; margin-bottom: 6px; color: var(--text); }
+    .use-card-body { font-size: 0.8125rem; color: var(--text-2); line-height: 1.6; }
+
+    /* ── How it works ── */
+    .steps { display: flex; flex-direction: column; gap: 0; }
+    .step {
+      display: flex; gap: 20px; padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%;
+      background: var(--accent); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--f-display); font-size: 14px; font-weight: 700; margin-top: 2px;
+    }
+    .step-title { font-weight: 700; font-size: 0.9375rem; margin-bottom: 5px; }
+    .step-body { font-size: 0.875rem; color: var(--text-2); line-height: 1.6; }
+    .step-body a { color: var(--accent); text-decoration: underline; }
+
+    /* ── Pro card ── */
+    .pro-card {
+      background: var(--accent); border-radius: 2px; padding: 36px 40px;
+      margin-bottom: 72px;
+    }
+    @media(max-width:600px) { .pro-card { padding: 28px 24px; } }
+    .pro-card-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--yellow); margin-bottom: 12px;
+    }
+    .pro-card h2 {
+      font-family: var(--f-display); font-size: 22px; font-weight: 700;
+      color: #fff; margin-bottom: 8px; letter-spacing: -0.02em;
+    }
+    .pro-card p {
+      font-size: 0.875rem; color: rgba(255,255,255,0.65); line-height: 1.6; margin-bottom: 20px;
+    }
+    .pro-features {
+      font-size: 0.8125rem; color: rgba(255,255,255,0.8);
+      line-height: 2.1; margin-bottom: 24px;
+    }
+    .pro-features span { color: var(--yellow); margin-right: 6px; }
+    .pro-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .pro-btn-primary {
+      display: inline-flex; align-items: center; padding: 12px 22px;
+      background: var(--yellow); color: #0f172a; border-radius: 4px;
+      font-family: var(--f-body); font-size: 0.9375rem; font-weight: 700;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .pro-btn-primary:hover { background: #fde047; transform: translateY(-1px); }
+    .pro-btn-ghost {
+      display: inline-flex; align-items: center; padding: 12px 22px;
+      background: transparent; color: rgba(255,255,255,0.8);
+      border: 1px solid rgba(255,255,255,0.25); border-radius: 4px;
+      font-family: var(--f-body); font-size: 0.9375rem; font-weight: 600;
+      text-decoration: none; transition: all 0.2s;
+    }
+    .pro-btn-ghost:hover { color: #fff; border-color: rgba(255,255,255,0.5); }
+
+    /* ── FAQ ── */
+    .faq { max-width: 680px; margin: 0 auto; padding: 0 24px 80px; }
+    .faq-item { border-bottom: 1px solid var(--border); padding: 20px 0; }
+    .faq-q { font-weight: 700; font-size: 0.9375rem; margin-bottom: 8px; color: var(--text); }
+    .faq-a { font-size: 0.875rem; color: var(--text-2); line-height: 1.7; }
+    .faq-a a { color: var(--accent); text-decoration: underline; }
+
+    /* ── Footer ── */
+    footer { border-top: 1px solid var(--border); padding: 2rem; }
     footer .footer-inner {
       max-width: 1100px; margin: 0 auto;
       display: flex; align-items: center; justify-content: space-between;
@@ -192,6 +219,11 @@
     footer ul a { font-size: 0.8125rem; color: var(--text-2); }
     footer ul a:hover { color: var(--text); }
     footer span { font-size: 0.75rem; color: var(--text-3); }
+
+    @media(max-width:600px) {
+      .use-grid { grid-template-columns: 1fr 1fr; }
+      .hero { padding-top: 96px; }
+    }
   </style>
 </head>
 <body>
@@ -204,82 +236,178 @@
     </a>
     <ul style="display:flex;align-items:center;gap:24px;list-style:none;margin-left:32px;">
       <li><a href="/work" style="font-size:0.875rem;font-weight:500;color:var(--text-2);">Work</a></li>
-      <li><a href="/secure" style="font-size:0.875rem;font-weight:500;color:var(--text-2);">Secure</a></li>
-      <li><a href="/marketplace" style="font-size:0.875rem;font-weight:500;color:var(--text-2);">Marketplace</a></li>
-      <li><a href="/bible" style="font-size:0.875rem;font-weight:500;color:var(--text-2);">Free Skills</a></li>
       <li><a href="/pro" style="font-size:0.875rem;font-weight:500;color:var(--text-2);">Pro</a></li>
       <li><a href="/download" style="font-size:0.875rem;font-weight:500;color:var(--text-2);">Download</a></li>
     </ul>
   </div>
   <div style="display:flex;align-items:center;gap:12px;">
-    <a href="https://app.plictor.com" class="btn btn-ghost">Sign in</a>
-    <a href="/work" class="btn btn-dark">Try free</a>
+    <a href="/pro" class="btn btn-ghost">Go Pro</a>
+    <a href="#download" class="btn btn-dark">Download Free</a>
   </div>
 </nav>
 
-<div class="page">
-  <div class="version-badge"><span class="version-badge-dot"></span> v1.1.4 — Now Available</div>
-  <h1>Download Plictor Work</h1>
-  <p class="sub">Your local AI business agent. Bring your own API key.<br>Your data never leaves your machine.</p>
+<!-- ── Hero ── -->
+<div class="hero">
+  <div class="badge"><span class="badge-dot"></span> v1.1.6 — Free Download</div>
+  <h1>Your AI assistant.<br>No monthly subscription.</h1>
+  <p class="hero-sub">
+    Plictor Work runs on your computer and connects directly to AI services like ChatGPT.
+    You pay the AI company for what you use — we never charge you for the app itself.
+  </p>
+</div>
 
-  <div class="feat-row">
-    <div class="feat-item">11 AI providers</div>
-    <div class="feat-item">Persistent memory</div>
-    <div class="feat-item">Web search</div>
-    <div class="feat-item">Custom skills</div>
-    <div class="feat-item">Fully local</div>
-  </div>
-
+<!-- ── Download ── -->
+<div class="download-wrap" id="download">
   <div class="download-card">
-
-    <!-- Verifying -->
-    <div class="verifying-section" id="verifying">
-      <div class="spinner"></div>
-      <div class="verifying-text">Verifying your purchase...</div>
+    <div class="os-tabs">
+      <button class="os-tab" id="tab-windows" onclick="switchOS('windows', this)">Windows</button>
+      <button class="os-tab" id="tab-mac"     onclick="switchOS('mac', this)">Mac</button>
+      <button class="os-tab" id="tab-linux"   onclick="switchOS('linux', this)">Linux</button>
     </div>
-
-    <!-- Error -->
-    <div class="error-section" id="error-section">
-      <strong>Could not verify purchase.</strong><br>
-      <span id="error-msg">If you just paid, please wait a moment and refresh. Contact hello@plictor.com if this persists.</span>
+    <a class="download-btn" id="os-download-btn" href="#">
+      ↓ &nbsp;Download for <span id="os-label">Windows</span>
+    </a>
+    <div class="download-meta" id="os-meta"></div>
+    <div class="free-includes">
+      <div><span class="check">✓</span> Chat with ChatGPT, Claude, Gemini, and more</div>
+      <div><span class="check">✓</span> Web search, task manager, custom shortcuts</div>
+      <div><span class="check">✓</span> Voice readback — hear your answers out loud</div>
+      <div><span class="check">✓</span> No account needed · No data sent to us · Free updates</div>
     </div>
+  </div>
+</div>
 
-    <!-- Buy (default) -->
-    <div class="buy-section" id="buy-section">
-      <div class="price-display">
-        <div class="price-amount">$10 <span>one-time</span></div>
-        <div class="price-note">Windows · Mac · Linux · All platforms included</div>
+<!-- ── Trust signals ── -->
+<div class="trust-row">
+  <div class="trust-item"><span class="trust-check">✓</span> 100% free to download</div>
+  <div class="trust-item"><span class="trust-check">✓</span> No credit card, no signup</div>
+  <div class="trust-item"><span class="trust-check">✓</span> Your data stays on your machine</div>
+  <div class="trust-item"><span class="trust-check">✓</span> Works on Windows, Mac &amp; Linux</div>
+</div>
+
+<!-- ── Use cases ── -->
+<div class="section">
+  <div class="section-label">What people use it for</div>
+  <div class="section-title">An assistant that actually helps you work.</div>
+  <p class="section-sub">Plictor Work is built for people who have real things to do — not for developers writing code all day.</p>
+  <div class="use-grid">
+    <div class="use-card">
+      <div class="use-card-icon">✉️</div>
+      <div class="use-card-title">Draft emails &amp; follow-ups</div>
+      <div class="use-card-body">Paste a situation, get a professional reply in seconds. Edit it. Send it.</div>
+    </div>
+    <div class="use-card">
+      <div class="use-card-icon">🔍</div>
+      <div class="use-card-title">Research anything</div>
+      <div class="use-card-body">Ask a question. Get a clear answer with sources — no rabbit holes.</div>
+    </div>
+    <div class="use-card">
+      <div class="use-card-icon">📋</div>
+      <div class="use-card-title">Summarize long documents</div>
+      <div class="use-card-body">Drop in a contract, a report, or a long email. Get the key points.</div>
+    </div>
+    <div class="use-card">
+      <div class="use-card-icon">📝</div>
+      <div class="use-card-title">Write listings &amp; proposals</div>
+      <div class="use-card-body">Give it the details — get polished copy you can post or send right away.</div>
+    </div>
+    <div class="use-card">
+      <div class="use-card-icon">📅</div>
+      <div class="use-card-title">Plan your day</div>
+      <div class="use-card-body">Turn a messy to-do list into a prioritized action plan.</div>
+    </div>
+    <div class="use-card">
+      <div class="use-card-icon">🤝</div>
+      <div class="use-card-title">Prep for meetings</div>
+      <div class="use-card-body">Quick-brief yourself on a client, a topic, or a decision before you walk in.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── How it works ── -->
+<div class="section">
+  <div class="section-label">Getting started</div>
+  <div class="section-title">Up and running in 5 minutes.</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-title">Download and install</div>
+        <div class="step-body">Click the download button above. Run the installer. No admin rights needed on most machines.</div>
       </div>
-      <a class="buy-btn" href="https://buy.stripe.com/eVq7sE2z02SR7tZgkucjS0s">Buy Plictor Work — $10</a>
-      <div class="buy-meta">Secure payment via Stripe. Download starts immediately after.</div>
-      <div class="buy-includes">
-        ✓ All platforms (Windows / Mac / Linux)<br>
-        ✓ Free updates forever<br>
-        ✓ No subscription, no account required<br>
-        ✓ Try free in browser first at <a href="/work">plictor.com/work</a>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">Get a free AI key (takes 2 minutes)</div>
+        <div class="step-body">
+          You need an API key from an AI provider — think of it as a password that lets Plictor talk to the AI on your behalf.
+          The easiest option: <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">OpenAI</a> (the company behind ChatGPT).
+          Free credits included when you sign up. You only pay when you actually use it — most people spend $1–3/month.
+        </div>
       </div>
     </div>
-
-    <!-- Download (after payment verified) -->
-    <div class="download-section" id="download-section">
-      <div class="success-badge">✓ Purchase verified — ready to download</div>
-      <div class="os-tabs">
-        <button class="os-tab active" onclick="switchOS('windows', this)">Windows</button>
-        <button class="os-tab" onclick="switchOS('mac', this)">Mac</button>
-        <button class="os-tab" onclick="switchOS('linux', this)">Linux</button>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">Paste your key into Plictor</div>
+        <div class="step-body">Open Plictor → Settings → paste your key. That's it. Start chatting.</div>
       </div>
-      <a class="download-btn" id="os-download-btn" href="#">Download for <span id="os-label">your OS</span></a>
-      <div class="download-meta" id="os-meta"></div>
-      <div class="redownload-note">Bookmark this page to re-download anytime using the same link.</div>
     </div>
+  </div>
+</div>
 
+<!-- ── Pro upsell ── -->
+<div class="section">
+  <div class="pro-card">
+    <div class="pro-card-label">Plictor Pro</div>
+    <h2>Memory that grows with you.</h2>
+    <p>Free users get a fresh start every session. Pro unlocks persistent memory — Plictor remembers your preferences, past work, and how you like things done, across every conversation.</p>
+    <div class="pro-features">
+      <div><span>▸</span> Persistent memory — Plictor learns your style over time</div>
+      <div><span>▸</span> Security Suite — local privacy audit, .env scan, score dashboard</div>
+      <div><span>▸</span> Scheduled tasks — set it running while you're away</div>
+      <div><span>▸</span> A2A protocol — chain multiple AI agents together</div>
+    </div>
+    <div class="pro-btns">
+      <a class="pro-btn-primary" href="https://buy.stripe.com/aFa3coa1sdxv5lRc4ecjS0u">Pro Lifetime — $79 one time</a>
+      <a class="pro-btn-ghost"   href="https://buy.stripe.com/fZu6oA7Tk50ZcOj0lwcjS0t">Monthly — $20/mo</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FAQ ── -->
+<div class="faq">
+  <div class="section-label" style="text-align:center;margin-bottom:24px;">Frequently asked questions</div>
+
+  <div class="faq-item">
+    <div class="faq-q">Is it really free?</div>
+    <div class="faq-a">Yes. The app is free forever — no trial, no credit card, no catch. You do pay the AI company (like OpenAI) separately for the conversations you have, but that's usually $1–3 a month for normal use. We don't see that money.</div>
   </div>
 
-  <div class="trust-row">
-    <div class="trust-item"><span class="trust-check">✓</span> Your API key, your calls</div>
-    <div class="trust-item"><span class="trust-check">✓</span> Zero data on our servers</div>
-    <div class="trust-item"><span class="trust-check">✓</span> Works offline after setup</div>
-    <div class="trust-item"><span class="trust-check">✓</span> Try free in browser first</div>
+  <div class="faq-item">
+    <div class="faq-q">What's an API key? Do I need to be technical?</div>
+    <div class="faq-a">An API key is just a password that lets Plictor connect to an AI service on your behalf. You get it by signing up at <a href="https://platform.openai.com" target="_blank" rel="noopener">OpenAI.com</a> — it takes about 2 minutes. No technical knowledge needed. If you can log into a website, you can do this.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Is my information private?</div>
+    <div class="faq-a">Plictor never sees your conversations. Your messages go directly from your computer to the AI service you chose (e.g. OpenAI). We have no server in the middle. We don't collect, store, or sell your data.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">What AI services does it work with?</div>
+    <div class="faq-a">OpenAI (ChatGPT), Anthropic (Claude), Google (Gemini), Mistral, Groq, and more — 11 providers in total. You can switch between them anytime. If you just want to get started fast, OpenAI is the easiest.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">What's the difference between Free and Pro?</div>
+    <div class="faq-a">Free gives you everything in the app — chat, search, tasks, voice. Pro adds persistent memory (Plictor remembers your preferences across sessions), a security suite, and scheduled background tasks. If you're not sure, start free and upgrade anytime.</div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q">Does it work on my computer?</div>
+    <div class="faq-a">Yes — Plictor Works runs on Windows 10/11, macOS 11+, and Linux. Download the version for your computer above.</div>
   </div>
 </div>
 
@@ -291,10 +419,6 @@
     </div>
     <ul>
       <li><a href="/work">Work</a></li>
-      <li><a href="/secure">Secure</a></li>
-      <li><a href="https://app.plictor.com">Forge</a></li>
-      <li><a href="/marketplace">Marketplace</a></li>
-      <li><a href="/bible">Free Skills</a></li>
       <li><a href="/pro">Pro</a></li>
       <li><a href="/download">Download</a></li>
       <li><a href="/privacy">Privacy</a></li>
@@ -306,10 +430,15 @@
 </footer>
 
 <script>
+  const DOWNLOAD_URLS = {
+    windows: 'https://pub-a3baad228a7c4b90becd668ac5d72cfd.r2.dev/plictor/Plictor-Work-Setup-1.1.6.exe',
+    mac:     'https://pub-a3baad228a7c4b90becd668ac5d72cfd.r2.dev/plictor/Plictor-Work-1.1.6-arm64.dmg',
+    linux:   'https://pub-a3baad228a7c4b90becd668ac5d72cfd.r2.dev/plictor/Plictor-Work-1.1.6.AppImage',
+  };
   const DOWNLOAD_META = {
-    windows: { label: 'Windows', meta: 'Windows 10/11 · 64-bit · ~95MB installer' },
-    mac:     { label: 'Mac',     meta: 'macOS 11+ · Apple Silicon + Intel · ~110MB' },
-    linux:   { label: 'Linux',   meta: 'AppImage · No install needed · ~102MB' },
+    windows: 'Windows 10/11 · 64-bit · 76 MB',
+    mac:     'macOS 11+ · Apple Silicon · 96 MB',
+    linux:   'AppImage · No install needed · 106 MB',
   };
 
   function detectOS() {
@@ -319,72 +448,21 @@
     return 'windows';
   }
 
-  function setDownloadButton(os) {
-    const urls = {
-      windows: 'https://github.com/enthrall05-pixel/plictor-work-desktop/releases/download/v1.1.4/Plictor-Work-Setup-1.1.4.exe',
-      mac:     'https://github.com/enthrall05-pixel/plictor-work-desktop/releases/download/v1.1.4/Plictor-Work-1.1.4-arm64.dmg',
-      linux:   'https://github.com/enthrall05-pixel/plictor-work-desktop/releases/download/v1.1.4/Plictor Work-1.1.4.AppImage',
-    };
-    document.getElementById('os-download-btn').href = urls[os];
-    document.getElementById('os-label').textContent = DOWNLOAD_META[os].label;
-    document.getElementById('os-meta').textContent = DOWNLOAD_META[os].meta;
-  }
-
   function switchOS(os, btn) {
     document.querySelectorAll('.os-tab').forEach(t => t.classList.remove('active'));
     btn.classList.add('active');
-    setDownloadButton(os);
+    document.getElementById('os-download-btn').href = DOWNLOAD_URLS[os];
+    document.getElementById('os-label').textContent = btn.textContent;
+    document.getElementById('os-meta').textContent = DOWNLOAD_META[os];
   }
 
-  function showBuy() {
-    document.getElementById('verifying').style.display = 'none';
-    document.getElementById('buy-section').style.display = 'block';
-  }
-
-  function showDownload() {
-    document.getElementById('verifying').style.display = 'none';
-    document.getElementById('buy-section').style.display = 'none';
-    document.getElementById('download-section').style.display = 'block';
-    const detectedOS = detectOS();
-    setDownloadButton(detectedOS);
-    document.querySelectorAll('.os-tab').forEach(t => {
-      t.classList.toggle('active', t.textContent.toLowerCase() === detectedOS);
-    });
-  }
-
-  function showError(msg) {
-    document.getElementById('verifying').style.display = 'none';
-    document.getElementById('error-section').style.display = 'block';
-    if (msg) document.getElementById('error-msg').textContent = msg;
-    document.getElementById('buy-section').style.display = 'block';
-  }
-
-  async function verifySession(sessionId) {
-    document.getElementById('verifying').style.display = 'block';
-    document.getElementById('buy-section').style.display = 'none';
-
-    try {
-      const res = await fetch(`/.netlify/functions/verify-purchase?session_id=${encodeURIComponent(sessionId)}`);
-      const data = await res.json();
-
-      if (data.valid) {
-        showDownload();
-      } else {
-        showError(data.error || 'Payment not confirmed. Contact hello@plictor.com if you were charged.');
-      }
-    } catch (err) {
-      showError('Verification failed. Please refresh or contact hello@plictor.com.');
-    }
-  }
-
-  // On load — check for session_id in URL
-  const params = new URLSearchParams(window.location.search);
-  const sessionId = params.get('session_id');
-
-  if (sessionId && sessionId.startsWith('cs_')) {
-    verifySession(sessionId);
-  } else {
-    showBuy();
+  const detectedOS = detectOS();
+  const activeTab = document.getElementById('tab-' + detectedOS);
+  if (activeTab) {
+    activeTab.classList.add('active');
+    document.getElementById('os-download-btn').href = DOWNLOAD_URLS[detectedOS];
+    document.getElementById('os-label').textContent = activeTab.textContent;
+    document.getElementById('os-meta').textContent = DOWNLOAD_META[detectedOS];
   }
 </script>
 </body>
