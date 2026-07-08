@@ -400,6 +400,110 @@
 
     /* divider */
     hr { border:none; border-top:1px solid var(--border); }
+    /* ── DOCK ── */
+    .dock {
+      width:48px; flex-shrink:0;
+      background:linear-gradient(180deg,#1e293b 0%,#0f172a 100%);
+      display:flex; flex-direction:column; align-items:center;
+      padding:8px 0; gap:2px;
+      border-right:1px solid rgba(255,255,255,0.06);
+    }
+    .dock-icon {
+      width:36px; height:36px; border-radius:8px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:16px; cursor:pointer; color:rgba(255,255,255,0.35);
+      transition:all 0.15s; border:none; background:none;
+    }
+    .dock-icon:hover { background:rgba(255,255,255,0.08); color:rgba(255,255,255,0.85); }
+    .dock-icon.active { background:rgba(245,158,11,0.25); color:#fcd34d; }
+    .dock-sep { width:28px; height:1px; background:rgba(255,255,255,0.08); margin:4px 0; }
+    .mode-btn {
+      width:100%; padding:6px 10px; border-radius:6px; border:1.5px solid var(--border);
+      background:white; font-size:11px; font-weight:600; color:var(--text-muted);
+      cursor:pointer; text-align:left; transition:all 0.15s; font-family:'Outfit',sans-serif;
+    }
+    .mode-btn:hover { border-color:var(--purple); color:var(--purple-dark); background:var(--purple-pale); }
+    .mode-btn.active { background:var(--chrome); color:white; border-color:transparent; }
+
+    /* ── SLIDE PANEL ── */
+    .slide-panel {
+      width:0; overflow:hidden; transition:width 0.2s ease;
+      background:linear-gradient(180deg,#f1f5f9 0%,#e2e8f0 100%);
+      border-right:1px solid var(--border);
+      flex-shrink:0;
+    }
+    .slide-panel.open { width:210px; }
+    .panel-inner { width:210px; padding:12px; overflow-y:auto; height:100%; box-sizing:border-box; }
+
+    /* ── WORKSPACE CENTER ── */
+    .workspace-center { flex:1; display:flex; flex-direction:column; overflow:hidden; background:#f8fafc; min-width:0; }
+    .workspace-header {
+      padding:8px 14px; border-bottom:1px solid var(--border);
+      display:flex; align-items:center; gap:8px;
+      background:linear-gradient(180deg,#f8fafc,#f1f5f9);
+      font-size:10px; font-weight:700; color:var(--text-muted);
+      text-transform:uppercase; letter-spacing:0.1em; flex-shrink:0;
+    }
+    .job-grid { flex:1; overflow-y:auto; padding:12px; display:flex; flex-direction:column; gap:8px; }
+    .job-grid::-webkit-scrollbar { width:4px; }
+    .job-grid::-webkit-scrollbar-thumb { background:rgba(71,85,105,0.15); border-radius:2px; }
+    .job-card {
+      background:white; border:1.5px solid var(--border); border-radius:10px;
+      padding:12px 14px; display:flex; gap:10px; align-items:flex-start;
+      box-shadow:0 1px 3px rgba(71,85,105,0.06); transition:border-color 0.15s;
+    }
+    .job-card.running { border-left:3px solid var(--purple); }
+    .job-card.done { border-left:3px solid #22c55e; }
+    .job-icon {
+      width:30px; height:30px; border-radius:7px; flex-shrink:0;
+      background:var(--purple-pale); display:flex; align-items:center;
+      justify-content:center; font-size:14px;
+    }
+    .job-body { flex:1; min-width:0; }
+    .job-title { font-size:12px; font-weight:600; color:var(--text); margin-bottom:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .job-result { font-size:12px; color:var(--text-muted); line-height:1.5; }
+    .job-meta { display:flex; align-items:center; gap:6px; margin-top:6px; }
+    .job-status {
+      font-size:9px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+      padding:2px 6px; border-radius:4px;
+    }
+    .job-status.done { background:#dcfce7; color:#166534; }
+    .job-status.running { background:var(--purple-pale); color:var(--purple-dark); }
+    .command-bar {
+      border-top:1px solid var(--border); padding:10px 12px;
+      background:linear-gradient(180deg,#f8fafc,#f1f5f9);
+      display:flex; gap:8px; align-items:flex-end; flex-shrink:0;
+    }
+
+    /* ── WALLET STRIP ── */
+    .wallet-strip {
+      width:180px; flex-shrink:0;
+      border-left:1px solid rgba(0,0,0,0.2);
+      background:linear-gradient(180deg,#0f172a 0%,#1e293b 100%);
+      display:flex; flex-direction:column; overflow:hidden;
+    }
+    .wallet-header {
+      padding:8px 12px; border-bottom:1px solid rgba(255,255,255,0.07);
+      font-size:9px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase;
+      color:rgba(255,255,255,0.35); display:flex; align-items:center; justify-content:space-between;
+      flex-shrink:0;
+    }
+    .wallet-list { flex:1; overflow-y:auto; padding:8px; display:flex; flex-direction:column; gap:6px; }
+    .wallet-card {
+      background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.09);
+      border-radius:8px; padding:10px;
+    }
+    .wallet-chain { font-size:9px; font-weight:700; color:rgba(255,255,255,0.35); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:3px; }
+    .wallet-addr { font-size:9px; color:rgba(255,255,255,0.3); font-family:monospace; margin-bottom:6px; }
+    .wallet-bal { font-size:16px; font-weight:700; color:white; line-height:1.2; }
+    .wallet-bal-usd { font-size:10px; color:rgba(255,255,255,0.3); margin-top:2px; }
+    .wallet-actions { display:flex; gap:4px; margin-top:8px; }
+    .wallet-btn {
+      flex:1; padding:4px 0; border-radius:5px; border:none; cursor:pointer;
+      font-size:10px; font-weight:600; background:rgba(255,255,255,0.08);
+      color:rgba(255,255,255,0.6); transition:background 0.15s; font-family:'Outfit',sans-serif;
+    }
+    .wallet-btn:hover { background:rgba(255,255,255,0.15); color:white; }
   </style>
 </head>
 <body>
@@ -437,6 +541,7 @@
     <div class="window-title">
       <img src="mascot.png" class="mascot" alt="" />
       Plictor Work
+      <span style="font-size:10px;font-weight:500;color:rgba(255,255,255,0.5);letter-spacing:0.08em;">— WORKSPACE</span>
     </div>
     <div class="window-controls">
       <div class="wc wc-min">_</div>
@@ -445,41 +550,36 @@
     </div>
   </div>
 
-  <div class="window-menubar">
-    <div class="menu-item">File</div>
-    <div class="menu-item">Agent</div>
-    <div class="menu-item">Tools</div>
-    <div class="menu-item">Skills</div>
-    <div class="menu-item">Help</div>
-  </div>
-
   <div class="window-layout">
 
-    <!-- ── SIDEBAR ── -->
-    <div class="sidebar">
+    <!-- ── DOCK ── -->
+    <div class="dock">
+      <button class="dock-icon active" id="dock-agent" onclick="setPanel('agent')" title="Agent">🤖</button>
+      <button class="dock-icon" id="dock-tools" onclick="setPanel('tools')" title="Tools">🔧</button>
+      <button class="dock-icon" id="dock-skills" onclick="setPanel('skills')" title="Skills">⚡</button>
+      <div class="dock-sep"></div>
+      <button class="dock-icon" id="dock-tasks" onclick="setPanel('tasks')" title="Tasks">📋</button>
+      <button class="dock-icon" id="dock-files" onclick="setPanel('files')" title="Files">📁</button>
+    </div>
 
-      <!-- Brain / LLM config -->
-      <div class="sidebar-section">
-        <div class="section-title">
-          Brain
-          <button class="section-add" id="brain-edit-btn" onclick="expandBrain()" title="Edit brain" style="display:none;font-size:13px">✏</button>
-        </div>
+    <!-- ── SLIDE PANEL ── -->
+    <div class="slide-panel open" id="slide-panel">
 
-        <!-- Collapsed bar (shown after save) -->
+      <!-- Agent panel -->
+      <div class="panel-inner" id="panel-agent">
+        <div class="section-title" style="margin-bottom:10px;">Brain</div>
+
         <div class="brain-bar" id="brain-bar" style="display:none">
           <div class="brain-dot"></div>
           <div class="brain-model" id="brain-bar-label">—</div>
           <button class="brain-edit" onclick="expandBrain()">Change</button>
         </div>
 
-        <!-- Expanded config (shown on first use or edit) -->
         <div id="brain-config">
           <div class="provider-toggle">
             <button class="ptab active" id="tab-cloud" onclick="setProviderType('cloud')">Cloud</button>
-            <button class="ptab"        id="tab-local" onclick="setProviderType('local')">Local</button>
+            <button class="ptab" id="tab-local" onclick="setProviderType('local')">Local</button>
           </div>
-
-          <!-- Cloud -->
           <div id="cloud-config">
             <div class="field-wrap">
               <div class="field-label">Provider</div>
@@ -512,8 +612,6 @@
             </div>
             <button class="btn btn-primary" style="width:100%;justify-content:center;font-size:12px;padding:7px" onclick="saveBrain()">Save Brain</button>
           </div>
-
-          <!-- Local -->
           <div id="local-config" style="display:none">
             <div class="field-wrap">
               <div class="field-label">Engine</div>
@@ -535,18 +633,23 @@
             <button class="btn btn-primary" style="width:100%;justify-content:center;font-size:12px;padding:7px" onclick="saveBrain()">Save Brain</button>
           </div>
         </div>
+
+        <div class="section-title" style="margin:14px 0 8px;">Mode</div>
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <button class="mode-btn active" id="mode-work" onclick="setMode('work')">💼 Work</button>
+          <button class="mode-btn" id="mode-research" onclick="setMode('research')">🔬 Research</button>
+          <button class="mode-btn" id="mode-crypto" onclick="setMode('crypto')">🔗 Crypto</button>
+          <button class="mode-btn" id="mode-general" onclick="setMode('general')">✦ General</button>
+        </div>
       </div>
 
-      <!-- MCP Tools -->
-      <div class="sidebar-section">
-        <div class="section-title">
+      <!-- Tools panel -->
+      <div class="panel-inner" id="panel-tools" style="display:none">
+        <div class="section-title" style="margin-bottom:10px;">
           Tools
           <button class="section-add" onclick="toggleAddMcp()" title="Add tool">＋</button>
         </div>
-
         <div id="mcp-list"></div>
-
-        <!-- Add MCP inline panel -->
         <div class="add-mcp-panel" id="add-mcp-panel">
           <div class="field-wrap" style="margin:0">
             <div class="field-label">Tool</div>
@@ -588,32 +691,77 @@
         </div>
       </div>
 
-      <!-- Skills -->
-      <div class="sidebar-section">
-        <div class="section-title">Skills</div>
+      <!-- Skills panel -->
+      <div class="panel-inner" id="panel-skills" style="display:none">
+        <div class="section-title" style="margin-bottom:10px;">Skills</div>
         <div id="skills-list"></div>
+      </div>
+
+      <!-- Tasks panel -->
+      <div class="panel-inner" id="panel-tasks" style="display:none">
+        <div class="section-title" style="margin-bottom:10px;">Tasks</div>
+        <div id="tasks-list" style="font-size:12px;color:var(--text-muted);">No tasks yet.</div>
+      </div>
+
+      <!-- Files panel -->
+      <div class="panel-inner" id="panel-files" style="display:none">
+        <div class="section-title" style="margin-bottom:10px;">Files</div>
+        <div style="font-size:12px;color:var(--text-muted);line-height:1.6;">Drop files here or connect a folder to give your agent file access.</div>
       </div>
 
     </div>
 
-    <!-- ── CHAT ── -->
-    <div class="chat-area">
-      <div class="chat-messages" id="chat-messages">
-        <!-- Welcome message -->
-        <div class="msg">
-          <div class="msg-avatar">✦</div>
-          <div>
-            <div class="msg-bubble">
-              Hey — I'm your Plictor agent. Configure your brain and connect some tools in the sidebar, then tell me what you need done.
-            </div>
-          </div>
+    <!-- ── WORKSPACE CENTER ── -->
+    <div class="workspace-center">
+      <div class="workspace-header">
+        <span>Active Jobs</span>
+        <div style="flex:1"></div>
+        <span id="active-tools-label">0 tools</span>
+        <span style="margin:0 6px;opacity:0.4">·</span>
+        <span id="brain-label" style="color:var(--text-muted)">No brain</span>
+      </div>
+      <div class="job-grid" id="job-grid">
+        <div id="workspace-empty" style="flex:1;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:13px;text-align:center;padding:40px;line-height:1.7;">
+          Set your brain in the Agent panel,<br>then type a task below.
         </div>
       </div>
-
-      <div class="chat-input-area">
-        <textarea class="chat-input" id="chat-input" placeholder="Ask your agent anything…" rows="1"
+      <div class="command-bar">
+        <textarea class="chat-input" id="chat-input" placeholder="What do you need done?" rows="1"
           onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
         <button class="send-btn" onclick="sendMessage()">↑</button>
+      </div>
+    </div>
+
+    <!-- ── WALLET STRIP ── -->
+    <div class="wallet-strip">
+      <div class="wallet-header">
+        Wallet
+        <span style="font-size:14px;cursor:pointer;opacity:0.5;line-height:1">＋</span>
+      </div>
+      <div class="wallet-list">
+        <div class="wallet-card">
+          <div class="wallet-chain">Solana</div>
+          <div class="wallet-addr">8xKf…3mPq</div>
+          <div class="wallet-bal">2.41 SOL</div>
+          <div class="wallet-bal-usd">≈ $342.18 USD</div>
+          <div class="wallet-actions">
+            <button class="wallet-btn">Send</button>
+            <button class="wallet-btn">Receive</button>
+          </div>
+        </div>
+        <div class="wallet-card">
+          <div class="wallet-chain">Base</div>
+          <div class="wallet-addr">0x4a2…f91c</div>
+          <div class="wallet-bal">0.18 ETH</div>
+          <div class="wallet-bal-usd">≈ $612.00 USD</div>
+          <div class="wallet-actions">
+            <button class="wallet-btn">Send</button>
+            <button class="wallet-btn">Receive</button>
+          </div>
+        </div>
+        <div style="padding:8px;font-size:10px;color:rgba(255,255,255,0.2);text-align:center;line-height:1.5;">
+          Pro: live balances,<br>send &amp; QR receive
+        </div>
       </div>
     </div>
 
@@ -621,59 +769,17 @@
 
   <div class="window-statusbar">
     <div class="status-dot idle" id="status-dot"></div>
-    <span id="status-text">Configure your brain to get started</span>
+    <span id="status-text">Ready</span>
     <div style="flex:1"></div>
-    <span id="active-tools-label">0 tools</span>
-    <span>·</span>
-    <span id="brain-label">No brain set</span>
+    <span style="font-size:10px;color:var(--text-muted);margin-right:6px;">Theme</span>
+    <button onclick="setTheme('amber')" style="width:12px;height:12px;border-radius:50%;background:#f59e0b;border:1.5px solid #d97706;cursor:pointer;padding:0;" title="Amber"></button>
+    <button onclick="setTheme('slate')" style="width:12px;height:12px;border-radius:50%;background:#64748b;border:1.5px solid #475569;cursor:pointer;padding:0;" title="Slate"></button>
+    <button onclick="setTheme('midnight')" style="width:12px;height:12px;border-radius:50%;background:#4338ca;border:1.5px solid #3730a3;cursor:pointer;padding:0;" title="Midnight"></button>
+    <button onclick="setTheme('bone')" style="width:12px;height:12px;border-radius:50%;background:#e7e5e4;border:1.5px solid #d6d3d1;cursor:pointer;padding:0;" title="Bone"></button>
   </div>
 
 </div>
 
-
-<!-- ── v1.3.0 Features ── -->
-<section style="max-width:900px;width:100%;padding:60px 20px 0;">
-  <div style="text-align:center;margin-bottom:40px;">
-    <span style="font-family:'Outfit',sans-serif;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#64748b;border:1px solid #d0d0d0;background:#f0f4f8;padding:4px 12px;border-radius:20px;">What's new in v1.3.0</span>
-    <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-size:36px;font-weight:800;letter-spacing:-0.03em;color:#111;margin-top:16px;margin-bottom:8px;">Built to work. Not to chat.</h2>
-    <p style="font-family:'Outfit',sans-serif;font-size:15px;color:#555;max-width:480px;margin:0 auto;line-height:1.6;">Completely rebuilt in React + TypeScript. Workspace-first layout, native crypto, full theming — this is what an AI desktop app should feel like.</p>
-  </div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;">
-    <div style="background:white;border:1.5px solid #e2e8f0;border-radius:10px;padding:20px;">
-      <div style="font-size:24px;margin-bottom:10px;">🗂️</div>
-      <div style="font-weight:700;font-size:14px;margin-bottom:6px;color:#0f172a;">Workspace-first</div>
-      <div style="font-size:13px;color:#64748b;line-height:1.6;">Job cards replace chat bubbles. See all your running tasks at a glance — not a scrolling chat log.</div>
-    </div>
-    <div style="background:white;border:1.5px solid #e2e8f0;border-radius:10px;padding:20px;">
-      <div style="font-size:24px;margin-bottom:10px;">🎨</div>
-      <div style="font-weight:700;font-size:14px;margin-bottom:6px;color:#0f172a;">4 themes, your call</div>
-      <div style="font-size:13px;color:#64748b;line-height:1.6;">Amber, Slate, Midnight, Bone. Each with light and dark mode. Switch any time — no restart needed.</div>
-    </div>
-    <div style="background:white;border:1.5px solid #e2e8f0;border-radius:10px;padding:20px;">
-      <div style="font-size:24px;margin-bottom:10px;">🧭</div>
-      <div style="font-weight:700;font-size:14px;margin-bottom:6px;color:#0f172a;">Mode picker</div>
-      <div style="font-size:13px;color:#64748b;line-height:1.6;">First launch asks what you need: Work, Research, Crypto, or General. Each mode sets a tailored AI persona from day one.</div>
-    </div>
-    <div style="background:white;border:1.5px solid #e2e8f0;border-radius:10px;padding:20px;">
-      <div style="font-size:24px;margin-bottom:10px;">🔗</div>
-      <div style="font-weight:700;font-size:14px;margin-bottom:6px;color:#0f172a;">Native crypto wallet</div>
-      <div style="font-size:13px;color:#64748b;line-height:1.6;">Solana and Base (EVM) wallets live in the right-hand strip. Send, receive, check balances — never leave your workspace.</div>
-    </div>
-    <div style="background:white;border:1.5px solid #e2e8f0;border-radius:10px;padding:20px;">
-      <div style="font-size:24px;margin-bottom:10px;">🤖</div>
-      <div style="font-weight:700;font-size:14px;margin-bottom:6px;color:#0f172a;">12 AI providers</div>
-      <div style="font-size:13px;color:#64748b;line-height:1.6;">Claude, GPT-4o, Gemini, Groq, Mistral, DeepSeek, Perplexity and more. Plus Ollama and LM Studio for full local AI.</div>
-    </div>
-    <div style="background:white;border:1.5px solid #e2e8f0;border-radius:10px;padding:20px;">
-      <div style="font-size:24px;margin-bottom:10px;">🔒</div>
-      <div style="font-weight:700;font-size:14px;margin-bottom:6px;color:#0f172a;">Private by design</div>
-      <div style="font-size:13px;color:#64748b;line-height:1.6;">Your keys, your data, your machine. No Plictor server sees your conversations — ever. Open-source verifiable.</div>
-    </div>
-  </div>
-  <div style="text-align:center;margin-top:40px;">
-    <a href="/download" style="display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:8px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;background:linear-gradient(180deg,#475569,#1e293b);color:white;text-decoration:none;box-shadow:0 2px 10px rgba(15,23,42,0.2);">↓ &nbsp;Download v1.3.0 Free</a>
-  </div>
-</section>
 <script>
 // ── Provider models ────────────────────────────────────────
 const PROVIDER_MODELS = {
@@ -1100,34 +1206,29 @@ async function sendMessage() {
   const inp = document.getElementById('chat-input');
   const text = inp.value.trim();
   if (!text) return;
-
-  addMessage('user', text);
   inp.value = ''; inp.style.height = '';
 
   if (!brain) {
-    addMessage('agent', 'Set up your brain in the sidebar first — pick a provider and paste your API key.');
+    addJobCard(text, 'Set up your brain in the Agent panel first.', 'done');
     return;
   }
 
-  const typing = showTyping();
+  const jobId = addJobCard(text, '', 'running');
   document.getElementById('status-dot').className = 'status-dot';
-  document.getElementById('status-text').textContent = 'Thinking…';
+  document.getElementById('status-text').textContent = 'Running…';
 
   try {
     const reply = await callLLM(text);
-    typing.remove();
     if (!reply) throw new Error('Empty response from provider');
-    // Save to history for multi-turn
     chatHistory.push({ role: 'user', content: text });
     chatHistory.push({ role: 'assistant', content: reply });
-    addMessage('agent', reply);
+    updateJobCard(jobId, reply, 'done');
     document.getElementById('status-dot').className = 'status-dot idle';
     document.getElementById('status-text').textContent = 'Ready';
   } catch (err) {
-    typing.remove();
+    updateJobCard(jobId, 'Error: ' + err.message, 'done');
     document.getElementById('status-dot').className = 'status-dot idle';
     document.getElementById('status-text').textContent = 'Error';
-    addMessage('agent', `Something went wrong: ${err.message}`);
   }
 }
 
@@ -1150,6 +1251,81 @@ function updateStatusBar() {
     document.getElementById('status-text').textContent = 'Ready';
   }
 }
+
+
+// ── Panel switcher ─────────────────────────────────────────
+let activePanel = 'agent';
+function setPanel(name) {
+  document.querySelectorAll('.dock-icon').forEach(el => el.classList.remove('active'));
+  document.getElementById('dock-' + name).classList.add('active');
+  document.querySelectorAll('.panel-inner').forEach(el => { el.style.display = 'none'; });
+  const target = document.getElementById('panel-' + name);
+  if (activePanel === name && document.getElementById('slide-panel').classList.contains('open')) {
+    document.getElementById('slide-panel').classList.remove('open');
+    activePanel = null;
+  } else {
+    if (target) target.style.display = 'block';
+    document.getElementById('slide-panel').classList.add('open');
+    activePanel = name;
+  }
+}
+
+// ── Mode switcher ──────────────────────────────────────────
+let currentMode = localStorage.getItem('pw_mode') || 'work';
+function setMode(mode) {
+  currentMode = mode;
+  localStorage.setItem('pw_mode', mode);
+  document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.getElementById('mode-' + mode);
+  if (btn) btn.classList.add('active');
+}
+setMode(currentMode);
+
+// ── Theme switcher ─────────────────────────────────────────
+function setTheme(theme) {
+  const colors = { amber:'#f59e0b', slate:'#475569', midnight:'#4338ca', bone:'#e7e5e4' };
+  const col = colors[theme] || colors.amber;
+  document.documentElement.style.setProperty('--purple', col);
+  localStorage.setItem('pw-theme', theme);
+}
+
+// ── Job cards ──────────────────────────────────────────────
+let jobCounter = 0;
+function addJobCard(task, result, status) {
+  const grid = document.getElementById('job-grid');
+  const empty = document.getElementById('workspace-empty');
+  if (empty) empty.remove();
+
+  const icons = ['📝','🔍','⚡','🛠️','📊','✉️','📋','🧠'];
+  const icon = icons[jobCounter % icons.length];
+  jobCounter++;
+
+  const card = document.createElement('div');
+  card.className = 'job-card ' + status;
+  card.id = 'job-' + jobCounter;
+  card.innerHTML = `
+    <div class="job-icon">${icon}</div>
+    <div class="job-body">
+      <div class="job-title">${task}</div>
+      <div class="job-result" id="job-result-${jobCounter}">${result || ''}</div>
+      <div class="job-meta">
+        <span class="job-status ${status}" id="job-status-${jobCounter}">${status === 'running' ? 'Running…' : 'Done'}</span>
+      </div>
+    </div>`;
+  grid.appendChild(card);
+  grid.scrollTop = grid.scrollHeight;
+  return jobCounter;
+}
+
+function updateJobCard(id, result, status) {
+  const resultEl = document.getElementById('job-result-' + id);
+  const statusEl = document.getElementById('job-status-' + id);
+  const card = document.getElementById('job-' + id);
+  if (resultEl) resultEl.textContent = result;
+  if (statusEl) { statusEl.textContent = status === 'done' ? 'Done' : status; statusEl.className = 'job-status ' + status; }
+  if (card) { card.classList.remove('running'); card.classList.add(status); }
+}
+
 
 // ── Init ───────────────────────────────────────────────────
 onProviderChange();
